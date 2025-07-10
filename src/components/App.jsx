@@ -26,20 +26,21 @@ const NotFoundPage = lazy(() =>
 
 function App() {
   return (
-    <SharedLayout>
-      <Suspense fallback={"Loader"}>
-        <Routes>
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/medicine-store" element={<MedicineStorePage />} />
-          <Route path="/medicine" element={<MedicinePage />} />
-          <Route path="/product" element={<ProductPage />} />
-          <Route path="/cart" element={<CartPage />} />
+    <Suspense fallback={"Loader"}>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="home" element={<HomePage />} />
+          <Route path="register" element={<RegisterPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="medicine-store" element={<MedicineStorePage />} />
+          <Route path="medicine" element={<MedicinePage />} />
+          <Route path="product" element={<ProductPage />} />
+          <Route path="cart" element={<CartPage />} />
           <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </Suspense>
-    </SharedLayout>
+        </Route>
+      </Routes>
+    </Suspense>
   );
 }
 

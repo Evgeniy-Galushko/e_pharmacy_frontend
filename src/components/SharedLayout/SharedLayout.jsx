@@ -1,6 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
+import s from "./SharedLayout.module.css";
+import sprite from "../../../public/icon-sprite.svg";
 
-export default function SharedLayout({ children }) {
+export default function SharedLayout() {
   return (
     <>
       <header>
@@ -12,8 +14,14 @@ export default function SharedLayout({ children }) {
         <NavLink to="/login">LoginPage</NavLink>
 
         <p>Heder</p>
+
+        <svg className={s.titleIcon}>
+          <use href={`${sprite}#icon-map-pin`} />
+        </svg>
       </header>
-      {children}
+      <main>
+        <Outlet />
+      </main>
       <footer>
         <p>Footer</p>
       </footer>
