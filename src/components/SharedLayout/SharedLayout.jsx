@@ -1,23 +1,23 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import s from "./SharedLayout.module.css";
 import sprite from "../../../public/icon-sprite.svg";
+import Header from "../Header/Header.jsx";
+import clsx from "clsx";
 
 export default function SharedLayout() {
+  const location = useLocation();
+
   return (
     <>
-      <header>
-        <NavLink to="/home">HomePage</NavLink>
-        <NavLink to="/medicine-store">Medicine store</NavLink>
-        <NavLink to="/medicine">Medicine</NavLink>
+      <header className={clsx(location.pathname === "/home" && s.header)}>
+        <Header />
 
-        <NavLink to="/register">Register</NavLink>
-        <NavLink to="/login">LoginPage</NavLink>
+        {/* <NavLink to="/register">Register</NavLink>
+        <NavLink to="/login">LoginPage</NavLink> */}
 
-        <p>Heder</p>
-
-        <svg className={s.titleIcon}>
+        {/* <svg className={s.titleIcon}>
           <use href={`${sprite}#icon-map-pin`} />
-        </svg>
+        </svg> */}
       </header>
       <main>
         <Outlet />
