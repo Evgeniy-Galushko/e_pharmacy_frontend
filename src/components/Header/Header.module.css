@@ -15,24 +15,53 @@
 }
 
 .navigationLinks {
-  opacity: 0;
+  display: none;
 }
+
+.authentication {
+  display: none;
+}
+
+.buttonMenu {
+  border: none;
+  background-color: inherit;
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  width: 375px;
+  height: 100vh;
+  background-color: rgba(29, 30, 33, 0.45);
+}
+
 @media screen and (min-width: 768px) {
   .header {
-    position: relative;
     max-width: 768px;
     padding: 28px 32px;
+  }
+
+  .menu {
+    width: 768px;
+    height: 100vh;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .header {
-    position: relative;
     max-width: 1440px;
     padding: 29px 128px;
   }
 
+  .boxButtonMenu {
+    display: none;
+  }
+
   .navigationLinks {
-    opacity: 1;
+    display: block;
+  }
+
+  .authentication {
+    display: block;
   }
 }

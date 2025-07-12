@@ -1,9 +1,8 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import s from "./NavigationLinks.module.css";
 import clsx from "clsx";
 
 export default function NavigationLinks() {
-  const location = useLocation();
   const buildLinkClass = ({ isActive }) => {
     return clsx(s.link, isActive && s.active);
   };
