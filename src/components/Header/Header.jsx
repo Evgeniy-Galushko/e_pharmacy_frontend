@@ -1,6 +1,6 @@
 import s from "./Header.module.css";
 import Logo from "../Logo/Logo.jsx";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import clsx from "clsx";
 import NavigationLinks from "../NavigationLinks/NavigationLinks.jsx";
 import AuthenticationLinks from "../AuthenticationLinks/AuthenticationLinks.jsx";
@@ -26,7 +26,7 @@ export default function Header() {
       className={clsx(s.header, location.pathname === "/home" && s.headerGreen)}
     >
       <li>
-        <Logo />
+        <Logo footer={true} />
       </li>
       <li className={s.boxButtonMenu}>
         <button className={s.buttonMenu} type="button" onClick={openModal}>
@@ -42,21 +42,42 @@ export default function Header() {
         </button>
       </li>
       <li className={s.navigationLinks}>
-        <NavigationLinks />
+        <NavigationLinks direction={false} />
       </li>
       <li className={s.authentication}>
-        {token ? <UserNav /> : <AuthenticationLinks />}
+        {token ? <UserNav /> : <AuthenticationLinks direction={false} />}
       </li>
 
       {modalMenu && (
         <li className={s.menu}>
-          <button type="button" onClick={closeModal}>
-            <svg className={s.icon} width={32} height={32}>
-              <use href={`${sprite}#icon-x`} />
-            </svg>
-          </button>
-          <ul>
-            <li></li>
+          <ul className={s.boxMenu}>
+            <li>
+              <button
+                type="button"
+                onClick={closeModal}
+                className={s.buttonClose}
+              >
+                <svg className={s.icon} width={32} height={32}>
+                  <use href={`${sprite}#icon-x`} />
+                </svg>
+              </button>
+            </li>
+            <li>
+              <NavigationLinks closeModal={closeModal} direction={true} />
+            </li>
+            <li>
+              {token ? (
+                <NavLink
+                  to="/home"
+                  className={s.buttonLogoOut}
+                  onClick={closeModal}
+                >
+                  Log out
+                </NavLink>
+              ) : (
+                <AuthenticationLinks direction={true} closeModal={closeModal} />
+              )}
+            </li>
           </ul>
         </li>
       )}

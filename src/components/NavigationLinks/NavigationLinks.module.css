@@ -6,6 +6,12 @@
   align-items: center;
 }
 
+.navigateMenu {
+  flex-direction: column;
+  gap: 3px;
+  /* justify-content: center; */
+}
+
 .navLink {
   padding: 8px;
   background-color: #fff;
@@ -45,6 +51,15 @@
   left: 85.6px;
 }
 
+.connectorMenu {
+  border-top: none;
+  border-bottom: none;
+  width: 15px;
+  height: 8px;
+  left: 64px;
+  top: 45.8px;
+}
+
 .connectorTwo {
   position: absolute;
   width: 4.8px;
@@ -54,4 +69,16 @@
   border-left: none;
   border-right: none;
   left: 234.5px;
+}
+
+.connectorTwoMenu {
+  border-top: none;
+  border-bottom: none;
+  width: 15px;
+  height: 8px;
+  left: 64px;
+  top: 95.8px;
+}
+
+@media screen and (min-width: 768px) {
 }

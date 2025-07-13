@@ -29,14 +29,15 @@ export default function UserNav() {
         </p>
       </li>
       <li>
-        <button
+        <NavLink
+          to="/home"
           className={clsx(
             s.button,
             location.pathname === "/home" && s.buttonWhite
           )}
         >
           Log out
-        </button>
+        </NavLink>
       </li>
     </ul>
   );

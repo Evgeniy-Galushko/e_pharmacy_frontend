@@ -3,6 +3,7 @@ import s from "./SharedLayout.module.css";
 
 import Header from "../Header/Header.jsx";
 import clsx from "clsx";
+import Footer from "../Footer/Footer.jsx";
 
 export default function SharedLayout() {
   const location = useLocation();
@@ -15,8 +16,8 @@ export default function SharedLayout() {
       <main>
         <Outlet />
       </main>
-      <footer>
-        <p>Footer</p>
+      <footer className={s.footer}>
+        <Footer />
       </footer>
     </>
   );

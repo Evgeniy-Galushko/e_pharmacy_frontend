@@ -4,6 +4,10 @@
   gap: 5px;
 }
 
+.boxAuthenticationMenu {
+  flex-direction: column;
+}
+
 .link {
   display: block;
   box-sizing: border-box;
@@ -20,6 +24,18 @@
 
   &:hover {
     background-color: #3f945f;
+  }
+}
+
+.linkMenu {
+  width: 119px;
+  text-align: center;
+  color: #f1f1f1;
+  border: 1px solid rgba(241, 241, 241, 0.5);
+
+  &:hover {
+    background-color: #3f945f;
+    /* color: #fff; */
   }
 }
 

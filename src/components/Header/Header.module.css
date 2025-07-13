@@ -28,11 +28,53 @@
 }
 
 .menu {
+  box-sizing: border-box;
   position: absolute;
   top: 0;
+  left: 0;
   width: 375px;
   height: 100vh;
   background-color: rgba(29, 30, 33, 0.45);
+}
+
+.boxMenu {
+  box-sizing: border-box;
+  position: relative;
+  left: 165px;
+  width: 210px;
+  height: 100vh;
+  background-color: #59b17a;
+  padding: 31px 20px 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buttonClose {
+  position: relative;
+  background-color: inherit;
+  border: none;
+  left: 70px;
+}
+
+.buttonLogoOut {
+  display: block;
+  border: 1px solid rgba(241, 241, 241, 0.5);
+  border-radius: 60px;
+  padding: 15px 32px;
+  background-color: inherit;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1;
+  color: #fff;
+
+  &:hover {
+    color: #fff;
+    background-color: #3f945f;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -44,6 +86,15 @@
   .menu {
     width: 768px;
     height: 100vh;
+  }
+  .boxMenu {
+    left: 434px;
+    width: 334px;
+    padding: 39px 32px 64px 32px;
+  }
+
+  .buttonClose {
+    left: 120px;
   }
 }
 
