@@ -1,0 +1,126 @@
+.promoBaner {
+  box-sizing: border-box;
+  max-width: 375px;
+  padding: 40px 20px;
+  margin: 0 auto;
+  background-color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* .boxPromo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+} */
+
+.oneCard {
+  box-sizing: border-box;
+  border: 1.15px solid #f1f1f1;
+  border-radius: 27px;
+  padding: 14px 18px;
+  width: 335px;
+  height: 126px;
+  box-shadow: 0 -1px 14px 0 rgba(29, 30, 33, 0.02);
+  background-color: #fdfdfd;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.hugeSale {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+}
+
+.number {
+  box-sizing: border-box;
+  width: 54px;
+  height: 54px;
+  padding: 13px 21px;
+  background-color: rgba(231, 241, 237, 0.4);
+  border-radius: 50px;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1;
+  text-align: center;
+  color: #59b17a;
+}
+
+.paragraph {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #252539;
+}
+
+.hugeSaleDiscount {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 30px;
+}
+
+.discount {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.4;
+  color: #252539;
+}
+
+.link {
+  border: none;
+  background-color: inherit;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #93939a;
+}
+
+@media screen and (min-width: 768px) {
+  .promoBaner {
+    max-width: 768px;
+    padding: 64px 49px 60px 49px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 28px;
+  }
+
+  .oneCard {
+    width: 321px;
+    height: 167px;
+  }
+
+  .number {
+    width: 74px;
+    height: 74px;
+    padding: 23px 31.5px;
+
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .paragraph {
+    font-size: 20px;
+  }
+
+  .discount {
+    font-size: 36px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .promoBaner {
+    max-width: 1440px;
+    padding: 64px 210.5px 60px 210.5px;
+  }
+}

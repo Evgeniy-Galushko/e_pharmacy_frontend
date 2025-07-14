@@ -23,8 +23,8 @@ const userPersistConfig = {
 export const store = configureStore({
   reducer: {
     user: persistReducer(userPersistConfig, userReducer),
-    product: productReducer,
-    order: orderReducer,
+    // product: productReducer,
+    // order: orderReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -1,0 +1,88 @@
+.mainBanner {
+  max-width: 375px;
+  /* padding: 0px 20px 25px 20px; */
+  margin: 0 auto;
+  box-sizing: border-box;
+  background-color: #59b17a;
+  background-image: url(../../../public/pills_1x_mob.png);
+  background-repeat: no-repeat;
+  background-size: 312px 312px;
+  background-position: center center;
+  padding: 191px 20px 337px 20px;
+}
+
+@media screen and (min-resolution: 192dpi) {
+  .homeImg {
+    background-image: url(../../../public/pills_2x_mob.png);
+  }
+}
+
+.title {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 4px 85px 0 rgba(29, 30, 33, 0.3);
+}
+
+.paragraph {
+  margin-top: 20px;
+  margin-left: 179px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33333;
+  color: #fff;
+  width: 156px;
+  height: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .mainBanner {
+    max-width: 768px;
+    background-image: url(../../../public/pills_1x_tab_PC.png);
+    background-size: 704px 508px;
+    padding: 298px 32px 414px 32px;
+  }
+
+  @media screen and (min-resolution: 192dpi) {
+    .homeImg {
+      background-image: url(../../../public/pills_2x_tab_PC.png);
+    }
+  }
+
+  .title {
+    margin-left: 31px;
+    font-size: 74px;
+    line-height: 1;
+  }
+
+  .paragraph {
+    margin-top: 24px;
+    margin-left: 414px;
+    font-size: 16px;
+    line-height: 1.25;
+    width: 207px;
+    height: 40px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .mainBanner {
+    max-width: 1440px;
+    background-image: url(../../../public/pills_1x_tab_PC.png);
+    background-size: 704px 508px;
+    padding: 181px 128px 302px 128px;
+  }
+
+  .title {
+    margin-left: 271px;
+    width: 609px;
+    height: 148px;
+  }
+
+  .paragraph {
+    margin-left: 654px;
+  }
+}

@@ -1,0 +1,38 @@
+.stores {
+  box-sizing: border-box;
+  max-width: 375px;
+  padding: 40px 20px;
+  margin: 0 auto;
+  background-color: inherit;
+}
+
+.title {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.14286;
+  text-align: center;
+  color: #1d1e21;
+
+  width: 291px;
+}
+
+.paragraph {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28571;
+  text-align: center;
+  color: #93939a;
+}
+
+.spinners {
+  top: 10px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1440px) {
+}
