@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { currentNearestStore } from "../../redux/user/operations.js";
 import { selectIsLoading, selectNearest } from "../../redux/user/selectors.js";
 import { RingLoader } from "react-spinners";
+import NearestShopItem from "../NearestShopItem/NearestShopItem.jsx";
 
 export default function MedicineStores() {
   const dispatch = useDispatch();
   const nearest = useSelector(selectNearest);
   const isloading = useSelector(selectIsLoading);
 
-  console.log(nearest);
+  // console.log(nearest);
 
   useEffect(() => {
     dispatch(currentNearestStore());
@@ -25,11 +26,18 @@ export default function MedicineStores() {
       {isloading ? (
         <RingLoader color="#59b17a" className={s.spinners} size={35} />
       ) : (
-        <ul>
+        <ul className={s.listShop}>
           {nearest.map(({ _id, address, city, name, phone, rating }) => {
             return (
-              <li key={_id}>
-                <p>{address}</p>
+              <li key={_id} className={s.boxOneShop}>
+                <NearestShopItem
+                  id={_id}
+                  address={address}
+                  city={city}
+                  name={name}
+                  phone={phone}
+                  rating={rating}
+                />
               </li>
             );
           })}

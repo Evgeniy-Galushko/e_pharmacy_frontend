@@ -1,0 +1,124 @@
+.direction {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.titleShop {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #1d1e21;
+}
+
+.location {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.divAddress {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.locationPhoneShop {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  color: #93939a;
+}
+
+.phone {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.rating {
+  position: absolute;
+  left: 162px;
+  width: 110px;
+  height: 34px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.ratingShop {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  color: #1d1e21;
+  margin-left: 6px;
+}
+
+.workingHoursOpen {
+  margin-left: 14px;
+  box-sizing: border-box;
+  width: 65px;
+  height: 34px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  background-color: rgba(89, 177, 122, 0.1);
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  /* text-align: center; */
+  color: #59b17a;
+}
+.workingHoursClose {
+  margin-left: 14px;
+  box-sizing: border-box;
+  width: 65px;
+  height: 34px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  background-color: rgba(232, 80, 80, 0.1);
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  /* text-align: center; */
+  color: #e85050;
+}
+
+@media screen and (min-width: 768px) {
+  .titleShop {
+    font-size: 20px;
+  }
+
+  .location {
+    margin-top: 40px;
+  }
+
+  .locationPhoneShop {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .phone {
+    margin-top: 14px;
+  }
+
+  .rating {
+    left: 152px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .rating {
+    left: 195px;
+  }
+}

@@ -1,0 +1,46 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.marquee {
+  padding: 64px 0px 60px 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: inherit;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #1d1e21;
+  position: relative;
+}
+
+.marqueeInner {
+  display: flex;
+  width: fit-content;
+  animation: marqueeScroll 10s linear infinite;
+}
+
+.marqueeLine {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 15px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.icon {
+  margin-right: 8px;
+}
