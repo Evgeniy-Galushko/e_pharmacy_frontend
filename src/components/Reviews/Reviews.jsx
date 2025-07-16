@@ -1,6 +1,7 @@
+import { RingLoader } from "react-spinners";
 import s from "./Reviews.module.css";
 
-export default function Reviews({ reviews }) {
+export default function Reviews({ reviews, isloading }) {
   if (!reviews) return;
 
   return (
@@ -9,17 +10,21 @@ export default function Reviews({ reviews }) {
       <p className={s.paragraphReviews}>
         Search for Medicine, Filter by your location
       </p>
-      <ul className={s.boxReviews}>
-        {reviews.map(({ img, name, _id, testimonial }) => {
-          return (
-            <li key={_id} className={s.oneCardReviews}>
-              <img src={img} alt={name} className={s.imgReviews} />
-              <h3 className={s.name}>{name}</h3>
-              <p className={s.testimonial}>{testimonial}</p>
-            </li>
-          );
-        })}
-      </ul>
+      {isloading ? (
+        <RingLoader color="#59b17a" className={s.spinners} size={35} />
+      ) : (
+        <ul className={s.boxReviews}>
+          {reviews.map(({ img, name, _id, testimonial }) => {
+            return (
+              <li key={_id} className={s.oneCardReviews}>
+                <img src={img} alt={name} className={s.imgReviews} />
+                <h3 className={s.name}>{name}</h3>
+                <p className={s.testimonial}>{testimonial}</p>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </section>
   );
 }

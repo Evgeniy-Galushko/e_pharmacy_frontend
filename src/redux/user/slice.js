@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { currentNearestStore, currentReviews } from "./operations.js";
+import {
+  currentNearestStore,
+  currentReviews,
+  currentStores,
+} from "./operations.js";
 
 const userSlise = createSlice({
   name: "user",
@@ -11,6 +15,7 @@ const userSlise = createSlice({
     },
     nearest: [],
     reviews: [],
+    stores: [],
     token: null,
     isLoading: false,
     error: null,
@@ -38,6 +43,18 @@ const userSlise = createSlice({
         state.reviews = action.payload;
       })
       .addCase(currentReviews.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(currentStores.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(currentStores.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.stores = action.payload;
+      })
+      .addCase(currentStores.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

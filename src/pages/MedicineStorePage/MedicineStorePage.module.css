@@ -1,0 +1,86 @@
+.medicineStorePage {
+  box-sizing: border-box;
+  max-width: 375px;
+  padding: 40px 20px;
+  margin: 0 auto;
+}
+
+.titleStore {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.15;
+  color: #1d1e21;
+}
+
+.listShop {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.boxOneShop {
+  box-sizing: border-box;
+  border: 1.15px solid #f1f1f1;
+  border-radius: 27px;
+  padding: 32px;
+  width: 335px;
+  height: 202px;
+  background-color: #e7f1ed;
+
+  background-image: url(../../../public/Group_mob.png);
+  background-repeat: no-repeat;
+  background-position: 208px 85px;
+}
+
+.spinners {
+  top: 10px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .medicineStorePage {
+    max-width: 768px;
+    padding: 60px 32px 120px 32px;
+  }
+
+  .listShop {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    row-gap: 32px;
+  }
+
+  .boxOneShop {
+    padding: 40px;
+    width: 344px;
+    height: 276px;
+
+    background-image: url(../../../public/stores_card_tab.png);
+    background-position: 229px 0px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .medicineStorePage {
+    max-width: 1440px;
+    padding: 60px 96px 120px 96px;
+  }
+
+  .listShop {
+    margin-top: 40px;
+    justify-content: center;
+    gap: 20px;
+    row-gap: 40px;
+  }
+
+  .boxOneShop {
+    width: 385px;
+
+    background-image: url(../../../public/stores_card_pc.png);
+    background-position: 229px 0px;
+  }
+}

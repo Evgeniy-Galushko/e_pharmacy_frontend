@@ -1,5 +1,7 @@
 import s from "./NearestShopItem.module.css";
 import sprite from "../../../public/icon-sprite.svg";
+import clsx from "clsx";
+import { NavLink } from "react-router-dom";
 
 export default function NearestShopItem({
   id,
@@ -8,6 +10,7 @@ export default function NearestShopItem({
   name,
   phone,
   rating,
+  storesBullean,
 }) {
   return (
     <ul className={s.direction}>
@@ -33,9 +36,14 @@ export default function NearestShopItem({
             </svg>
             <p className={s.locationPhoneShop}>{phone}</p>
           </li>
+          {storesBullean && (
+            <li>
+              <NavLink className={s.linkStorePage}>Visit Store</NavLink>
+            </li>
+          )}
         </ul>
       </li>
-      <li className={s.rating}>
+      <li className={clsx(s.rating, storesBullean && s.retinStores)}>
         <svg width={18} height={18}>
           <use href={`${sprite}#icon-star`} />
         </svg>

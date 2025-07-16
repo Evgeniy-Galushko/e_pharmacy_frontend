@@ -62,3 +62,22 @@ export const currentReviews = createAsyncThunk(
     }
   }
 );
+
+export const currentStores = createAsyncThunk(
+  "user/currentStores",
+  async (_, thunkAPI) => {
+    try {
+      // const state = thunkAPI.getState();
+      // const token = state.auth.token;
+      // if (token) {
+      //   setAuthHeader(token);
+      // }
+      const data = await axios.get("/api/stores/");
+      // console.log(data.data.data);
+      // setAuthHeader(data.data.token);
+      return data.data.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

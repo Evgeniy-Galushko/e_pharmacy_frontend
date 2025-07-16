@@ -29,6 +29,7 @@ export default function HomePage() {
     dispatch(currentNearestStore());
     dispatch(currentReviews());
   }, [dispatch]);
+
   return (
     <section>
       <MainBanner />
@@ -36,7 +37,7 @@ export default function HomePage() {
       <MedicineStores isloading={isloading} nearest={nearest} />
       <PharmacyPromoSection />
       <RunningLine />
-      <Reviews reviews={reviews} />
+      <Reviews reviews={reviews} isloading={isloading} />
     </section>
   );
 }
