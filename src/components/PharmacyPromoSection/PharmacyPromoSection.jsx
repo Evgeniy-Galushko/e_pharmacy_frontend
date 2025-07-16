@@ -25,14 +25,14 @@ export default function PharmacyPromoSection() {
       </ul>
       <picture className={s.imgPharmacy}>
         <source
-          srcSet="../../../public/medicines_img_ mob_1x.png 1x, ../../../public/medicines_img_ mob_2x.png 2x"
-          media="(max-width:767px)"
+          srcSet="/medicines_img_mob_1x.png 1x, /medicines_img_mob_2x.png 2x"
+          media="(max-width: 767px)"
         />
         <source
-          srcSet="../../../public/medicines_img_ tab_pc_1x.png 1x, ../../../public/medicines_img_ tab_pc_2x.png 2x"
+          srcSet="/medicines_img_tab_pc_1x.png 1x, /medicines_img_tab_pc_2x.png 2x"
           media="(min-width: 768px)"
         />
-        <img src="../../../public/medicines_img_ mob_1x.png" alt="medicines" />
+        <img src="/medicines_img_mob_1x.png" alt="medicines" />
       </picture>
     </section>
   );

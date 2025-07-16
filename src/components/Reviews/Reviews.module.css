@@ -1,0 +1,127 @@
+.reviews {
+  box-sizing: border-box;
+  max-width: 375px;
+  padding: 40px 20px 80px 20px;
+  margin: 0 auto;
+}
+
+.titleReviews {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.14;
+  text-align: center;
+  color: #1d1e21;
+
+  margin-bottom: 14px;
+}
+
+.paragraphReviews {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  text-align: center;
+  color: #93939a;
+
+  margin-bottom: 64px;
+}
+
+.boxReviews {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.oneCardReviews {
+  position: relative;
+  box-sizing: border-box;
+  border: 1px solid #f1f1f1;
+  border-radius: 27px;
+  padding: 0px 16px 40px 16px;
+  width: 335px;
+  height: 232px;
+  background-color: #fdfdfd;
+}
+
+.imgReviews {
+  position: absolute;
+  top: -25px;
+  left: 135.5px;
+  border-radius: 100%;
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+}
+
+.name {
+  margin-top: 54px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.5;
+  text-align: center;
+  color: #1d1e21;
+}
+
+.testimonial {
+  margin-top: 16px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: center;
+  color: #93939a;
+}
+
+@media screen and (min-width: 768px) {
+  .reviews {
+    max-width: 768px;
+    padding: 60px 32px 120px 32px;
+  }
+
+  .titleReviews {
+    font-size: 40px;
+    line-height: 1.2;
+
+    margin-bottom: 14px;
+  }
+
+  .paragraphReviews {
+    font-size: 16px;
+    line-height: 1.25;
+
+    margin-bottom: 64px;
+  }
+
+  .boxReviews {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    row-gap: 35px;
+  }
+
+  .oneCardReviews {
+    width: 344px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .reviews {
+    max-width: 1440px;
+    padding: 60px 119px 120px 119px;
+  }
+
+  .boxReviews {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 28px;
+    row-gap: 40px;
+  }
+
+  .oneCardReviews {
+    width: 378px;
+  }
+}

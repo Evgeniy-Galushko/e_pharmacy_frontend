@@ -1,21 +1,9 @@
-import { useEffect } from "react";
 import s from "./MedicineStores.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { currentNearestStore } from "../../redux/user/operations.js";
-import { selectIsLoading, selectNearest } from "../../redux/user/selectors.js";
 import { RingLoader } from "react-spinners";
 import NearestShopItem from "../NearestShopItem/NearestShopItem.jsx";
 
-export default function MedicineStores() {
-  const dispatch = useDispatch();
-  const nearest = useSelector(selectNearest);
-  const isloading = useSelector(selectIsLoading);
-
-  // console.log(nearest);
-
-  useEffect(() => {
-    dispatch(currentNearestStore());
-  }, [dispatch]);
+export default function MedicineStores({ isloading, nearest }) {
+  if (!nearest) return;
 
   return (
     <section className={s.stores}>

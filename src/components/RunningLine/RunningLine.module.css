@@ -5,7 +5,7 @@
 }
 
 .marquee {
-  padding: 64px 0px 60px 0px;
+  padding: 40px 0px;
   overflow: hidden;
   white-space: nowrap;
   background-color: inherit;
@@ -20,7 +20,7 @@
 .marqueeInner {
   display: flex;
   width: fit-content;
-  animation: marqueeScroll 10s linear infinite;
+  animation: marqueeScroll 25s linear infinite;
 }
 
 .marqueeLine {
@@ -43,4 +43,10 @@
 
 .icon {
   margin-right: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .marquee {
+    padding: 64px 0px 60px 0px;
+  }
 }
