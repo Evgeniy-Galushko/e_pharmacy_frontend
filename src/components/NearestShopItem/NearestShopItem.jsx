@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { NavLink } from "react-router-dom";
 
 export default function NearestShopItem({
-  id,
+  // id,
   address,
   city,
   name,
