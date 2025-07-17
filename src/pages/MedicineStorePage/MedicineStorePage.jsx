@@ -11,7 +11,7 @@ export default function MedicineStorePage() {
   const stores = useSelector(selectStores);
   const isloading = useSelector(selectIsLoading);
 
-  console.log(stores);
+  // console.log(stores);
 
   useEffect(() => {
     dispatch(currentStores());
