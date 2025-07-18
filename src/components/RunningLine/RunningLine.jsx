@@ -1,5 +1,5 @@
 import s from "./RunningLine.module.css";
-import sprite from "../../../public/icon-sprite.svg";
+import sprite from "../../img/icon-sprite.svg";
 
 export default function RunningLine() {
   const items = [

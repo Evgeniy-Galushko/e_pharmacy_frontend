@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
-import sprite from "../../../public/icon-sprite.svg";
+import sprite from "../../img/icon-sprite.svg";
 import s from "./UserNav.module.css";
 import clsx from "clsx";
 

@@ -1,0 +1,45 @@
+.istOfMedicines {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.oneCardMedicines {
+  width: 335px;
+  height: 443px;
+}
+
+.spinners {
+  top: 30px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .istOfMedicines {
+    margin-top: 32px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 13px;
+    row-gap: 32px;
+    justify-content: center;
+  }
+
+  .oneCardMedicines {
+    width: 226px;
+    height: 403px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .istOfMedicines {
+    margin-top: 40px;
+    gap: 17px;
+    row-gap: 40px;
+  }
+
+  .oneCardMedicines {
+    width: 280px;
+    height: 423px;
+  }
+}

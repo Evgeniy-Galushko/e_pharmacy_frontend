@@ -5,7 +5,7 @@ import clsx from "clsx";
 import NavigationLinks from "../NavigationLinks/NavigationLinks.jsx";
 import AuthenticationLinks from "../AuthenticationLinks/AuthenticationLinks.jsx";
 import UserNav from "../UserNav/UserNav.jsx";
-import sprite from "../../../public/icon-sprite.svg";
+import sprite from "../../img/icon-sprite.svg";
 import { useState } from "react";
 
 export default function Header() {

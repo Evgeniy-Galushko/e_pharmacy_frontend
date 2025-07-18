@@ -1,1 +1,38 @@
+.medicinesSection {
+  box-sizing: border-box;
+  max-width: 375px;
+  padding: 40px 20px 80px 20px;
+  margin: 0 auto;
+  background-color: inherit;
+}
 
+.titleMedicine {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.14;
+  color: #1d1e21;
+  margin-bottom: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .medicinesSection {
+    max-width: 768px;
+    padding: 52px 32px 120px 32px;
+    margin: 0 auto;
+    background-color: inherit;
+  }
+
+  .titleMedicine {
+    margin-bottom: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .medicinesSection {
+    max-width: 1440px;
+    padding: 66px 128px 120px 128px;
+    margin: 0 auto;
+    background-color: inherit;
+  }
+}

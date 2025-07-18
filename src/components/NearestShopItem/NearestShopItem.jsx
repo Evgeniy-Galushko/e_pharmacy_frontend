@@ -1,5 +1,5 @@
 import s from "./NearestShopItem.module.css";
-import sprite from "../../../public/icon-sprite.svg";
+import sprite from "../../img/icon-sprite.svg";
 import clsx from "clsx";
 import { NavLink } from "react-router-dom";
 
