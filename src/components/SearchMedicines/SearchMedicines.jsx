@@ -3,14 +3,16 @@ import s from "./SearchMedicines.module.css";
 import sprite from "../../img/icon-sprite.svg";
 import clsx from "clsx";
 
-export default function SearchMedicines() {
+export default function SearchMedicines({ setSearh, setCategory }) {
   const initialValues = {
     search: "",
     category: "",
   };
 
   const handleSubmit = (values, actions) => {
-    console.log(values);
+    setSearh(values.search.trim());
+    setCategory(values.category);
+    // console.log(values.search);
   };
 
   return (
@@ -23,13 +25,13 @@ export default function SearchMedicines() {
             className={clsx(s.select, values.category !== "" && s.color)}
           >
             <option value="">Product category</option>
-            <option value="medicine">medicine</option>
-            <option value="heart">heart</option>
-            <option value="head">head</option>
-            <option value="hand">hand</option>
-            <option value="leg">leg</option>
-            <option value="skin care">skin care</option>
-            <option value="dental care">dental care</option>
+            <option value="Medicine">medicine</option>
+            <option value="Heart">heart</option>
+            <option value="Head">head</option>
+            <option value="Hand">hand</option>
+            <option value="Leg">leg</option>
+            <option value="Skin Care">skin care</option>
+            <option value="Dental Care">dental care</option>
           </Field>
           <svg width={16} height={16} className={s.iconArrow}>
             <use href={`${sprite}#icon-fi-rr-angle-small-left`} />
@@ -44,7 +46,7 @@ export default function SearchMedicines() {
           <svg width={16} height={16} className={s.iconSearch}>
             <use href={`${sprite}#icon-search`} />
           </svg>
-          <button className={s.buttonSubmit}>
+          <button className={s.buttonSubmit} type="submit">
             <svg width={14} height={14}>
               <use href={`${sprite}#icon-filter`} />
             </svg>

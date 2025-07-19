@@ -12,14 +12,23 @@ const clearAuthHeader = () => {
 export const requestForMedicines = createAsyncThunk(
   "product/requestMedicines",
   async (request, thunkAPI) => {
+    const { page, perPage, search, type } = request;
     try {
       // const state = thunkAPI.getState();
       // const token = state.auth.token;
       // if (token) {
       //   setAuthHeader(token);
       // }
-      const data = await axios.get("/api/products/");
-      // console.log(data.data.data);
+      // console.log(search);
+      const data = await axios.get(`/api/products/`, {
+        params: {
+          ...(page && { page }),
+          ...(perPage && { perPage }),
+          ...(search && { search }),
+          ...(type && { type }),
+        },
+      });
+      console.log(data.data.data);
       // setAuthHeader(data.data.token);
       return data.data.data;
     } catch (error) {
