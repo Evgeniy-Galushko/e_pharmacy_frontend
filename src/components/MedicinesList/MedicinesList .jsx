@@ -1,6 +1,5 @@
 import MedicinesItem from "../MedicinesItem/MedicinesItem.jsx";
 import s from "./MedicinesList.module.css";
-import sprite from "../../img/icon-sprite.svg";
 import { RingLoader } from "react-spinners";
 
 export default function MedicinesList({ product, isLoading }) {

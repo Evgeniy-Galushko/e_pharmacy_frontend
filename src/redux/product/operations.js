@@ -19,7 +19,6 @@ export const requestForMedicines = createAsyncThunk(
       // if (token) {
       //   setAuthHeader(token);
       // }
-      // console.log(search);
       const data = await axios.get(`/api/products/`, {
         params: {
           ...(page && { page }),
@@ -28,7 +27,7 @@ export const requestForMedicines = createAsyncThunk(
           ...(type && { type }),
         },
       });
-      console.log(data.data.data);
+      // console.log(data.data.data);
       // setAuthHeader(data.data.token);
       return data.data.data;
     } catch (error) {

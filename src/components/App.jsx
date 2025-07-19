@@ -19,12 +19,12 @@ const MedicinePage = lazy(() =>
   import("../pages/MedicinePage/MedicinePage.jsx")
 );
 const ProductPage = lazy(() => import("../pages/ProductPage/ProductPage.jsx"));
-// const MedicineDetailsPage = lazy(() =>
-//   import("../pages/MedicineDetailsPage/MedicineDetailsPage.jsx")
-// );
 const CartPage = lazy(() => import("../pages/CartPage/CartPage.jsx"));
 const NotFoundPage = lazy(() =>
   import("../pages/NotFoundPage/NotFoundPage.jsx")
+);
+const Description = lazy(() =>
+  import("../components/Description/Description.jsx")
 );
 
 function App() {
@@ -38,8 +38,10 @@ function App() {
           <Route path="login" element={<LoginPage />} />
           <Route path="medicine-store" element={<MedicineStorePage />} />
           <Route path="medicine" element={<MedicinePage />} />
-          <Route path="product/:produstId" element={<ProductPage />} />
-          {/* <Route path="product/:produstId" element={<MedicineDetailsPage />} /> */}
+          <Route path="product/:produstId/" element={<ProductPage />}>
+            <Route path="description" element={<Description />} />
+            {/* <Route path="reviews" element={} /> */}
+          </Route>
           <Route path="cart" element={<CartPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>

@@ -1,0 +1,139 @@
+.sectionProduct {
+  box-sizing: border-box;
+  max-width: 375px;
+  padding: 40px 20px 80px 20px;
+  margin: 0 auto;
+  background-color: inherit;
+}
+
+.productBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.img {
+  border: 1.15px solid rgba(89, 177, 122, 0.6);
+  border-radius: 27px;
+  width: 335px;
+  height: 337px;
+}
+
+.characteristics {
+  box-sizing: border-box;
+  border-radius: 20px;
+  width: 335px;
+  height: 160px;
+  background-color: #fff;
+  padding: 20px;
+}
+
+.boxNamePrice {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.namePrice {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #1d1e21;
+}
+
+.suppliers {
+  margin-top: 4px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(29, 30, 33, 0.6);
+}
+
+.boxAddToCart {
+  margin-top: 32px;
+}
+
+.boxButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.buttonPlusMinus {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid rgba(29, 30, 33, 0.1);
+  border-radius: 60px;
+  width: 108px;
+  height: 44px;
+}
+
+.buttonPlus {
+  background-color: inherit;
+  height: 45px;
+  border: none;
+  border-right: 1px solid rgba(29, 30, 33, 0.1);
+
+  &:disabled {
+    cursor: default;
+    box-sizing: border-box;
+    background-color: rgba(38, 38, 38, 0.05);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+  }
+}
+
+.number {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: center;
+  color: #1d1e21;
+}
+
+.buttonMinus {
+  background-color: inherit;
+  height: 45px;
+  border: none;
+  border-left: 1px solid rgba(29, 30, 33, 0.1);
+
+  &:disabled {
+    cursor: default;
+    box-sizing: border-box;
+    background-color: rgba(38, 38, 38, 0.05);
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+}
+
+.buttonAdd {
+  box-sizing: border-box;
+  border: none;
+  background-color: #59b17a;
+  border-radius: 60px;
+  padding: 13px 32px;
+  width: 140px;
+  height: 44px;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  color: #fff;
+
+  &:hover {
+    background-color: #3f945f;
+  }
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1440px) {
+}

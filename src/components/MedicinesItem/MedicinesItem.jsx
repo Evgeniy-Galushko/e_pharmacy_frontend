@@ -1,15 +1,7 @@
 import { NavLink } from "react-router-dom";
 import s from "./MedicinesItem.module.css";
 
-export default function MedicinesItem({
-  id,
-  category,
-  name,
-  photo,
-  price,
-  stock,
-  suppliers,
-}) {
+export default function MedicinesItem({ id, name, photo, price, suppliers }) {
   return (
     <ul className={s.card}>
       <li>
