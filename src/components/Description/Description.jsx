@@ -6,5 +6,5 @@ export default function Description() {
   const product = useSelector(selectOneMedicine);
 
   // console.log(product);
-  return <p>{product.description}</p>;
+  return <p className={s.paragraph}>{product.description}</p>;
 }

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { requestById } from "../../redux/product/operations.js";
 import { selectOneMedicine } from "../../redux/product/selectors.js";
 import sprite from "../../img/icon-sprite.svg";
+import clsx from "clsx";
 
 export default function ProductPage() {
   const [quantityOfProduct, setQuantityOfProduct] = useState(1);
@@ -35,58 +36,76 @@ export default function ProductPage() {
     <section className={s.sectionProduct}>
       <ul className={s.productBox}>
         <li>
-          <img className={s.img} src={photo} alt="" width={335} />
-        </li>
-        <li className={s.characteristics}>
-          <ul>
-            <li className={s.boxNamePrice}>
-              <h2 className={s.namePrice}>{name}</h2>
-              <p className={s.namePrice}> &#x09F3; {price}</p>
-            </li>
+          <ul className={s.boxProd}>
             <li>
-              <p className={s.suppliers}>Brand: {suppliers}</p>
+              <img className={s.img} src={photo} alt="" width={335} />
             </li>
-            <li className={s.boxAddToCart}>
-              <ul className={s.boxButton}>
-                <li className={s.buttonPlusMinus}>
-                  <button
-                    className={s.buttonPlus}
-                    type="button"
-                    onClick={handlePlusProduct}
-                    disabled={quantityOfProduct >= stock && true}
-                  >
-                    <svg width={20} height={20}>
-                      <use href={`${sprite}#icon-plus`} />
-                    </svg>
-                  </button>
-                  <p className={s.number}>{quantityOfProduct}</p>
-                  <button
-                    className={s.buttonMinus}
-                    type="button"
-                    onClick={handleMinusProduct}
-                    disabled={quantityOfProduct <= 1 && true}
-                  >
-                    <svg width={20} height={20}>
-                      <use href={`${sprite}#icon-minus`} />
-                    </svg>
-                  </button>
-                </li>
+            <li className={s.characteristics}>
+              <ul>
                 <li>
-                  <button className={s.buttonAdd} type="button">
-                    Add to cart
-                  </button>
+                  <ul className={s.boxNamePrice}>
+                    <li>
+                      <h2 className={s.namePrice}>{name}</h2>
+                      <p className={s.suppliers}>Brand: {suppliers}</p>
+                    </li>
+                    <li>
+                      <p className={s.namePrice}> &#x09F3; {price}</p>
+                    </li>
+                  </ul>
+                </li>
+                <li className={s.boxAddToCart}>
+                  <ul className={s.boxButton}>
+                    <li className={s.buttonPlusMinus}>
+                      <button
+                        className={s.buttonPlus}
+                        type="button"
+                        onClick={handlePlusProduct}
+                        disabled={quantityOfProduct >= stock && true}
+                      >
+                        <svg width={20} height={20}>
+                          <use href={`${sprite}#icon-plus`} />
+                        </svg>
+                      </button>
+                      <p className={s.number}>{quantityOfProduct}</p>
+                      <button
+                        className={s.buttonMinus}
+                        type="button"
+                        onClick={handleMinusProduct}
+                        disabled={quantityOfProduct <= 1 && true}
+                      >
+                        <svg width={20} height={20}>
+                          <use href={`${sprite}#icon-minus`} />
+                        </svg>
+                      </button>
+                    </li>
+                    <li>
+                      <button className={s.buttonAdd} type="button">
+                        Add to cart
+                      </button>
+                    </li>
+                  </ul>
                 </li>
               </ul>
             </li>
           </ul>
         </li>
         <li>
-          <ul>
-            <li>
-              <NavLink to={`/product/${_id}/description`}>Description</NavLink>
-              <NavLink to={`/product/${_id}/reviews`}>Reviews</NavLink>
+          <ul className={s.partReviews}>
+            <li className={s.boxLink}>
+              <NavLink
+                className={buildLinkClass}
+                to={`/product/${_id}/description`}
+              >
+                Description
+              </NavLink>
+              <NavLink
+                className={buildLinkClass}
+                to={`/product/${_id}/reviews`}
+              >
+                Reviews
+              </NavLink>
             </li>
-            <li>
+            <li className={s.boxOutlet}>
               <Outlet />
             </li>
           </ul>

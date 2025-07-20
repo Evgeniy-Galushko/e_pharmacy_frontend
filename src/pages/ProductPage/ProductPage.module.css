@@ -12,6 +12,12 @@
   gap: 8px;
 }
 
+.boxProd {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .img {
   border: 1.15px solid rgba(89, 177, 122, 0.6);
   border-radius: 27px;
@@ -132,8 +138,141 @@
   }
 }
 
+.partReviews {
+  box-sizing: border-box;
+  padding: 20px 20px 40px 20px;
+  border-radius: 27px;
+  width: 335px;
+  /* height: 783px; */
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.boxLink {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.link {
+  box-sizing: border-box;
+  border-radius: 40px;
+  padding: 8px 25px;
+  height: 33px;
+  background-color: rgba(89, 177, 122, 0.1);
+
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.05em;
+  text-align: center;
+  color: #59b17a;
+}
+
+.active {
+  background-color: #59b17a;
+  color: #fff;
+}
+
+.boxOutlet {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 @media screen and (min-width: 768px) {
+  .sectionProduct {
+    max-width: 768px;
+    padding: 40px 32px 120px 32px;
+  }
+
+  .productBox {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .boxProd {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .img {
+    width: 363px;
+    height: 284px;
+  }
+
+  .characteristics {
+    width: 323px;
+    height: 284px;
+    padding: 32px;
+  }
+
+  .boxNamePrice {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .namePrice {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .boxAddToCart {
+    margin-top: 66px;
+  }
+
+  .partReviews {
+    padding: 32px 32px 70px 32px;
+    width: 704px;
+    gap: 32px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
+  .sectionProduct {
+    max-width: 1440px;
+    padding: 66px 128px 120px 128px;
+  }
+
+  .productBox {
+    gap: 20px;
+  }
+
+  .boxProd {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .img {
+    border: 1.15px solid rgba(89, 177, 122, 0.6);
+    border-radius: 27px;
+    width: 364px;
+    height: 337px;
+  }
+
+  .characteristics {
+    width: 364px;
+    height: 174px;
+    padding: 20px;
+  }
+
+  .boxNamePrice {
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+  }
+
+  .boxAddToCart {
+    margin-top: 40px;
+  }
+
+  .partReviews {
+    padding: 40px 40px 66px 40px;
+    width: 786px;
+    gap: 40px;
+  }
 }

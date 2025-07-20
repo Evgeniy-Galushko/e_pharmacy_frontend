@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 const SharedLayout = lazy(() =>
   import("../components/SharedLayout/SharedLayout.jsx")
@@ -27,6 +27,10 @@ const Description = lazy(() =>
   import("../components/Description/Description.jsx")
 );
 
+const ReviewsProduct = lazy(() =>
+  import("../components/ReviewsProduct/ReviewsProduct.jsx")
+);
+
 function App() {
   return (
     <Suspense fallback={"Loader"}>
@@ -39,8 +43,9 @@ function App() {
           <Route path="medicine-store" element={<MedicineStorePage />} />
           <Route path="medicine" element={<MedicinePage />} />
           <Route path="product/:produstId/" element={<ProductPage />}>
+            <Route index element={<Navigate to="description" replace />} />
             <Route path="description" element={<Description />} />
-            {/* <Route path="reviews" element={} /> */}
+            <Route path="reviews" element={<ReviewsProduct />} />
           </Route>
           <Route path="cart" element={<CartPage />} />
           <Route path="*" element={<NotFoundPage />} />
