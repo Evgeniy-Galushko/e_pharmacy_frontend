@@ -25,6 +25,20 @@ export const registrationRequest = createAsyncThunk(
   }
 );
 
+export const loginRequest = createAsyncThunk(
+  "user/login",
+  async (user, thunkAPI) => {
+    try {
+      const data = await axios.post("/api/user/login", user);
+      setAuthHeader(data.data.data.accessToken);
+      // console.log(data.data.data);
+      return data.data.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const currentNearestStore = createAsyncThunk(
   "user/currentNearest",
   async (_, thunkAPI) => {

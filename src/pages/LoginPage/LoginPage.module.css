@@ -1,0 +1,39 @@
+.sectionLogin {
+  box-sizing: border-box;
+  max-width: 375px;
+  padding: 25px 20px 191px 20px;
+  margin: 0 auto;
+  background-color: inherit;
+
+  background-image: url(../../../public/elements_Fone_mob.png);
+  background-repeat: no-repeat;
+  background-position: 159px 560px;
+}
+
+@media screen and (min-width: 768px) {
+  .sectionLogin {
+    max-width: 768px;
+    padding: 36px 32px 250px 32px;
+    margin: 0 auto;
+    background-color: inherit;
+
+    background-image: url(../../../public/elements_Fone_tab.png);
+
+    background-position: 491px 651px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .sectionLogin {
+    max-width: 1440px;
+    padding: 88px 128px 262px 128px;
+
+    background-position: 1162px 445px;
+  }
+
+  .login {
+    display: flex;
+    flex-direction: row;
+    gap: 160px;
+  }
+}

@@ -56,14 +56,14 @@
 }
 
 .boxButton {
-  margin-top: 10px;
+  margin-top: 118px;
 }
 
 .buttonSubmit {
   box-sizing: border-box;
   border: none;
   border-radius: 60px;
-  padding: 13px 139px;
+  padding: 13px 147px;
   width: 335px;
   height: 44px;
   background-color: #59b17a;
@@ -92,26 +92,25 @@
 @media screen and (min-width: 768px) {
   .form {
     margin-top: 54px;
-    flex-direction: row;
-    flex-wrap: wrap;
     gap: 14px;
   }
 
   .input {
-    width: 280px;
+    width: 323px;
   }
 
   .buttonShowPassword {
-    left: 245px;
+    left: 285px;
   }
 
   .boxButton {
     margin-top: 48px;
+    width: 323px;
   }
 
   .buttonSubmit {
-    padding: 13px 112px;
-    width: 280px;
+    padding: 13px 139px;
+    width: 323px;
   }
 }
 
@@ -121,12 +120,12 @@
   }
 
   .input {
-    width: 262px;
+    width: 323px;
   }
 
-  .buttonShowPassword {
-    left: 225px;
-  }
+  /* .buttonShowPassword {
+    left: 285px;
+  } */
 
   .boxButton {
     margin-top: 62px;
