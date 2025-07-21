@@ -1,0 +1,52 @@
+.boxTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  background-image: url(../../../public/tablet_mob_1x.png);
+  background-repeat: no-repeat;
+  background-position: 220px 0px;
+  background-size: 95px 93px;
+  height: 192px;
+}
+
+@media screen and (min-resolution: 192dpi) {
+  .boxTitle {
+    background-image: url(../../../public/tablet_mob_2x.png);
+  }
+}
+
+.title {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.21;
+  color: #1d1e21;
+}
+
+.titleColor {
+  color: #59b17a;
+}
+
+@media screen and (min-width: 768px) {
+  .boxTitle {
+    background-image: url(../../../public/tablet_tab_1x.png);
+    background-position: 416px 0px;
+    background-size: 179px 175px;
+    height: 344px;
+    width: 614px;
+  }
+
+  @media screen and (min-resolution: 192dpi) {
+    .boxTitle {
+      background-image: url(../../../public/tablet_tab_2x.png);
+    }
+  }
+
+  .title {
+    font-size: 54px;
+    line-height: 1.11;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+}

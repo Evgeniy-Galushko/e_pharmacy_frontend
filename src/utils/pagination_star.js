@@ -32,20 +32,3 @@ export function Pagination_star(number) {
   }
   return numbers;
 }
-
-// export function FinishedRow(number, sprite) {
-//   if (number === 5) {
-//     const arrayNambers = Pagination_star(number);
-
-//     const star = arrayNambers.map((arr, index) => {
-//       return `${(
-//         <svg width={16} height={16}>
-
-//           <use href={`${sprite}#icon-star`} />
-//         </svg>
-//       )}`;
-//     });
-
-//     return star;
-//   }
-// }

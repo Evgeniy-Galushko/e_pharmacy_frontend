@@ -3,6 +3,7 @@ import {
   currentNearestStore,
   currentReviews,
   currentStores,
+  registrationRequest,
 } from "./operations.js";
 
 const userSlise = createSlice({
@@ -22,6 +23,12 @@ const userSlise = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      .addCase(registrationRequest.fulfilled, (state, action) => {
+        state.user.name = action.payload.name;
+        state.user.email = action.payload.email;
+        state.user.phoneNumber = action.payload.phoneNumber;
+        state.token = action.payload.accessToken;
+      })
       .addCase(currentNearestStore.pending, (state) => {
         state.isLoading = true;
       })
