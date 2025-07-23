@@ -17,7 +17,7 @@ import orderReducer from "./order/slice.js";
 const userPersistConfig = {
   key: "user",
   storage,
-  whitelist: ["token"],
+  whitelist: ["token", "user"],
 };
 
 export const store = configureStore({

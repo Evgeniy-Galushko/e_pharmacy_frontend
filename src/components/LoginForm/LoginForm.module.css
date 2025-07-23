@@ -80,6 +80,7 @@
 }
 
 .paragraph {
+  display: block;
   margin-top: 14px;
   font-family: "Inter", sans-serif;
   font-weight: 400;

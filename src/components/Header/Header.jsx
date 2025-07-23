@@ -1,17 +1,28 @@
 import s from "./Header.module.css";
 import Logo from "../Logo/Logo.jsx";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import NavigationLinks from "../NavigationLinks/NavigationLinks.jsx";
 import AuthenticationLinks from "../AuthenticationLinks/AuthenticationLinks.jsx";
 import UserNav from "../UserNav/UserNav.jsx";
 import sprite from "../../img/icon-sprite.svg";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { selectToken } from "../../redux/user/selectors.js";
+import { requestToLogout } from "../../redux/user/operations.js";
 
 export default function Header() {
   const [modalMenu, setModalMenu] = useState(false);
   const location = useLocation();
-  const token = false;
+  const token = useSelector(selectToken);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(requestToLogout());
+    navigate("/home");
+    setModalMenu(false);
+  };
 
   const openModal = () => {
     setModalMenu(true);
@@ -67,13 +78,13 @@ export default function Header() {
             </li>
             <li>
               {token ? (
-                <NavLink
-                  to="/home"
+                <button
+                  type="button"
+                  onClick={handleLogout}
                   className={s.buttonLogoOut}
-                  onClick={closeModal}
                 >
                   Log out
-                </NavLink>
+                </button>
               ) : (
                 <AuthenticationLinks direction={true} closeModal={closeModal} />
               )}

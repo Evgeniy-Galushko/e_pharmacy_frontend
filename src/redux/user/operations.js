@@ -95,3 +95,21 @@ export const currentStores = createAsyncThunk(
     }
   }
 );
+
+export const requestToLogout = createAsyncThunk(
+  "user/requestToLogout",
+  async (_, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const token = state.user.token;
+      if (token) {
+        setAuthHeader(token);
+      }
+      const data = await axios.get("/api/user/logout");
+      console.log(data.data);
+      clearAuthHeader();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

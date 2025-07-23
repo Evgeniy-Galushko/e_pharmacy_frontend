@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { Toaster } from "react-hot-toast";
 import RegistrationForm from "../../components/RegistrationForm/RegistrationForm.jsx";
 import Title from "../../components/Title/Title.jsx";
 import s from "./RegisterPage.module.css";
@@ -13,17 +14,23 @@ export default function RegisterPage() {
   const dispatch = useDispatch();
   const navigation = useNavigate();
 
-  console.log(token);
-
   useEffect(() => {
     dispatch(registrationRequest(userData));
-    navigation();
-  }, [dispatch, userData]);
+    if (token) {
+      navigation("/cart");
+    }
+  }, [dispatch, userData, token]);
 
   // console.log(userData);
 
   return (
     <section className={s.sectionRegister}>
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          duration: 3000,
+        }}
+      />
       <ul className={s.register}>
         <li>
           <Title />

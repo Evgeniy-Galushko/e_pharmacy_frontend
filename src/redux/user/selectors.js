@@ -9,3 +9,5 @@ export const selectReviews = (state) => state.user.reviews;
 export const selectStores = (state) => state.user.stores;
 
 export const selectToken = (state) => state.user.token;
+
+export const selectError = (state) => state.user.error;

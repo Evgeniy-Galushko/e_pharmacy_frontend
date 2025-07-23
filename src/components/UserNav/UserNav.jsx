@@ -1,11 +1,22 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import sprite from "../../img/icon-sprite.svg";
 import s from "./UserNav.module.css";
 import clsx from "clsx";
+import { useDispatch, useSelector } from "react-redux";
+import { requestToLogout } from "../../redux/user/operations.js";
+import { selectUser } from "../../redux/user/selectors.js";
 
 export default function UserNav() {
   const location = useLocation();
-  console.log(location.pathname === "/home");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector(selectUser);
+
+  const handleLogout = () => {
+    dispatch(requestToLogout());
+    navigate("/home");
+  };
+
   return (
     <ul className={s.boxUserNav}>
       <li>
@@ -25,19 +36,20 @@ export default function UserNav() {
             location.pathname === "/home" && s.userNameWhite
           )}
         >
-          U
+          {user.name.slice(0, 1)}
         </p>
       </li>
       <li>
-        <NavLink
-          to="/home"
+        <button
+          type="button"
+          onClick={handleLogout}
           className={clsx(
             s.button,
             location.pathname === "/home" && s.buttonWhite
           )}
         >
           Log out
-        </NavLink>
+        </button>
       </li>
     </ul>
   );

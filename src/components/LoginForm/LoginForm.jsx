@@ -3,6 +3,7 @@ import * as Yup from "yup";
 import s from "./LoginForm.module.css";
 import sprite from "../../img/icon-sprite.svg";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function LoginForm({ setUserData }) {
   const [showPassword, setShowPassword] = useState(false);
@@ -97,7 +98,9 @@ export default function LoginForm({ setUserData }) {
           <button className={s.buttonSubmit} type="submit">
             Log in
           </button>
-          <p className={s.paragraph}>Don't have an account?</p>
+          <NavLink to="/register" className={s.paragraph}>
+            Don't have an account?
+          </NavLink>
         </div>
       </Form>
     </Formik>

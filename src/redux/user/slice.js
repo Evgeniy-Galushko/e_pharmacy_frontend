@@ -5,6 +5,7 @@ import {
   currentStores,
   loginRequest,
   registrationRequest,
+  requestToLogout,
 } from "./operations.js";
 
 const userSlise = createSlice({
@@ -29,6 +30,9 @@ const userSlise = createSlice({
         state.user.email = action.payload.email;
         state.user.phoneNumber = action.payload.phoneNumber;
         state.token = action.payload.accessToken;
+      })
+      .addCase(registrationRequest.rejected, (state, action) => {
+        state.error = action.payload;
       })
       .addCase(loginRequest.fulfilled, (state, action) => {
         state.user.name = action.payload.name;
@@ -70,6 +74,19 @@ const userSlise = createSlice({
       })
       .addCase(currentStores.rejected, (state, action) => {
         state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(requestToLogout.fulfilled, (state) => {
+        state.user = {
+          name: null,
+          email: null,
+          phoneNumber: null,
+        };
+        state.token = null;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(requestToLogout.rejected, (state, action) => {
         state.error = action.payload;
       });
   },
