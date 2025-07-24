@@ -4,7 +4,7 @@ import s from "./CartPage.module.css";
 export default function CartPage() {
   return (
     <section className={s.sectionCart}>
-      <h1>Cart</h1>
+      <h2 className={s.titleCart}>Cart</h2>
       <ul>
         <li>
           <OrderForm />
