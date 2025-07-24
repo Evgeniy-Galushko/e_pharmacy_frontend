@@ -12,6 +12,8 @@ export default function UserNav() {
   const navigate = useNavigate();
   const user = useSelector(selectUser);
 
+  if (!user) return;
+
   const handleLogout = () => {
     dispatch(requestToLogout());
     navigate("/home");
