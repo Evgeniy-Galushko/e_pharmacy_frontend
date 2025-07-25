@@ -1,7 +1,19 @@
 import { NavLink } from "react-router-dom";
 import s from "./MedicinesItem.module.css";
+import { useDispatch } from "react-redux";
+import {
+  addToCartRequest,
+  requestAllsOder,
+} from "../../redux/order/operations.js";
 
 export default function MedicinesItem({ id, name, photo, price, suppliers }) {
+  const dispatch = useDispatch();
+
+  const handleClickAddCart = (_id) => {
+    dispatch(addToCartRequest({ id: _id, quantity: 1 }));
+    dispatch(requestAllsOder());
+  };
+
   return (
     <ul className={s.card}>
       <li>
@@ -17,7 +29,15 @@ export default function MedicinesItem({ id, name, photo, price, suppliers }) {
             <p className={s.suppliers}>{suppliers}</p>
           </li>
           <li className={s.cartDetails}>
-            <button className={s.button}>Add to cart</button>{" "}
+            <button
+              className={s.button}
+              type="button"
+              onClick={() => {
+                handleClickAddCart(id);
+              }}
+            >
+              Add to cart
+            </button>
             <NavLink to={`/product/${id}`} className={s.link}>
               Details
             </NavLink>

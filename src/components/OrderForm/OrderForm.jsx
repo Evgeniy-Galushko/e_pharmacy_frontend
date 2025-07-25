@@ -3,7 +3,7 @@ import s from "./OrderForm.module.css";
 import * as Yup from "yup";
 import { useId } from "react";
 
-export default function OrderForm() {
+export default function OrderForm({ orderAmount }) {
   const nameId = useId();
   const emailId = useId();
   const phoneId = useId();
@@ -181,7 +181,9 @@ export default function OrderForm() {
               <p className={s.paragraphTotal}>Total:</p>
             </li>
             <li>
-              <p className={s.paragraphTotal}> &#x09F3; NUMBER</p>
+              <p className={s.paragraphTotal}>
+                &#x09F3; {orderAmount.toFixed(2)}
+              </p>
             </li>
           </ul>
         </div>

@@ -1,26 +1,14 @@
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import s from "./UserNavMob.module.css";
 import sprite from "../../img/icon-sprite.svg";
-import s from "./UserNav.module.css";
-import clsx from "clsx";
-import { useDispatch, useSelector } from "react-redux";
-import { requestToLogout } from "../../redux/user/operations.js";
 import { selectUser } from "../../redux/user/selectors.js";
 import { selectBasket } from "../../redux/order/selectors.js";
+import clsx from "clsx";
+import { NavLink } from "react-router-dom";
 
-export default function UserNav() {
-  const location = useLocation();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+export default function UserNavMob() {
   const user = useSelector(selectUser);
   const basket = useSelector(selectBasket);
-
-  const handleLogout = () => {
-    dispatch(requestToLogout());
-    navigate("/home");
-  };
-
-  if (!user) return;
-  // console.log(!user);
 
   return (
     <ul className={s.boxUserNav}>
@@ -44,18 +32,6 @@ export default function UserNav() {
         >
           {user.name.slice(0, 1)}
         </p>
-      </li>
-      <li>
-        <button
-          type="button"
-          onClick={handleLogout}
-          className={clsx(
-            s.button,
-            location.pathname === "/home" && s.buttonWhite
-          )}
-        >
-          Log out
-        </button>
       </li>
     </ul>
   );

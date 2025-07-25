@@ -22,6 +22,10 @@
   display: none;
 }
 
+.boxButtonMenu {
+  display: flex;
+}
+
 .buttonMenu {
   border: none;
   background-color: inherit;

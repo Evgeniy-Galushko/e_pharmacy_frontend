@@ -1,0 +1,64 @@
+import { useState } from "react";
+import sprite from "../../img/icon-sprite.svg";
+import s from "./OrderItem.module.css";
+
+export default function OrderItem({
+  photo,
+  name,
+  price,
+  suppliers,
+  stock,
+  quantity,
+}) {
+  const [quantityOfProduct, setQuantityOfProduct] = useState(quantity);
+
+  const handlePlusProduct = () => {
+    setQuantityOfProduct(quantityOfProduct + 1);
+  };
+
+  const handleMinusProduct = () => {
+    setQuantityOfProduct(quantityOfProduct - 1);
+  };
+  return (
+    <>
+      <img className={s.imgBasket} src={photo} alt={name} />
+      <ul className={s.boxCharacteristics}>
+        <li className={s.boxPrice}>
+          <div>
+            <h3 className={s.title}>{name}</h3>
+            <p className={s.suppliers}> {suppliers} </p>
+          </div>
+          <p className={s.price}>&#x09F3; {price}</p>
+        </li>
+        <li className={s.boxButton}>
+          <div className={s.buttonPlusMinus}>
+            <button
+              className={s.buttonPlus}
+              type="button"
+              onClick={handlePlusProduct}
+              disabled={quantityOfProduct >= stock && true}
+            >
+              <svg width={20} height={20}>
+                <use href={`${sprite}#icon-plus`} />
+              </svg>
+            </button>
+            <p className={s.number}>{quantityOfProduct}</p>
+            <button
+              className={s.buttonMinus}
+              type="button"
+              onClick={handleMinusProduct}
+              disabled={quantityOfProduct <= 1 && true}
+            >
+              <svg width={20} height={20}>
+                <use href={`${sprite}#icon-minus`} />
+              </svg>
+            </button>
+          </div>
+          <button type="button" className={s.removeButton}>
+            Remove
+          </button>
+        </li>
+      </ul>
+    </>
+  );
+}

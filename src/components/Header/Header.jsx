@@ -1,6 +1,6 @@
 import s from "./Header.module.css";
 import Logo from "../Logo/Logo.jsx";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import NavigationLinks from "../NavigationLinks/NavigationLinks.jsx";
 import AuthenticationLinks from "../AuthenticationLinks/AuthenticationLinks.jsx";
@@ -10,11 +10,13 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectToken } from "../../redux/user/selectors.js";
 import { requestToLogout } from "../../redux/user/operations.js";
+import UserNavMob from "../UserNavMob/UserNavMob.jsx";
 
 export default function Header() {
   const [modalMenu, setModalMenu] = useState(false);
   const location = useLocation();
   const token = useSelector(selectToken);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -40,6 +42,7 @@ export default function Header() {
         <Logo footer={true} />
       </li>
       <li className={s.boxButtonMenu}>
+        {token && <UserNavMob />}
         <button className={s.buttonMenu} type="button" onClick={openModal}>
           {location.pathname === "/home" ? (
             <svg className={s.icon} width={32} height={26}>

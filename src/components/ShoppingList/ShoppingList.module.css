@@ -1,0 +1,34 @@
+.containerList {
+  display: flex;
+  flex-direction: column;
+  width: 335px;
+}
+
+.oneCard {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(29, 30, 33, 0.1);
+}
+
+@media screen and (min-width: 768px) {
+  .containerList {
+    width: 704px;
+  }
+
+  .oneCard {
+    gap: 20px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .containerList {
+    padding-top: 60px;
+    width: 460px;
+  }
+
+  .oneCard {
+    gap: 20px;
+  }
+}

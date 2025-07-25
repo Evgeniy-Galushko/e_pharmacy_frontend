@@ -14,10 +14,20 @@
   color: #1d1e21;
 }
 
+.boxCart {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
 @media screen and (min-width: 768px) {
   .sectionCart {
     max-width: 768px;
     padding: 52px 32px 120px 32px;
+  }
+
+  .boxCart {
+    gap: 44px;
   }
 }
 
@@ -25,5 +35,10 @@
   .sectionCart {
     max-width: 1440px;
     padding: 66px 128px 120px 128px;
+  }
+
+  .boxCart {
+    flex-direction: row;
+    gap: 95px;
   }
 }

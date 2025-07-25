@@ -20,7 +20,7 @@ export default function MedicinePage() {
   const dispatch = useDispatch();
   const page = PaginationButton(product.totalPages);
   const perPage = 12;
-  console.log(toPage, search, category);
+  // console.log(toPage, search, category);
 
   useEffect(() => {
     dispatch(

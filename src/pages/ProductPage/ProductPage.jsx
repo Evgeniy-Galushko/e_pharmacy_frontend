@@ -6,6 +6,10 @@ import { requestById } from "../../redux/product/operations.js";
 import { selectOneMedicine } from "../../redux/product/selectors.js";
 import sprite from "../../img/icon-sprite.svg";
 import clsx from "clsx";
+import {
+  addToCartRequest,
+  requestAllsOder,
+} from "../../redux/order/operations.js";
 
 export default function ProductPage() {
   const [quantityOfProduct, setQuantityOfProduct] = useState(1);
@@ -30,6 +34,11 @@ export default function ProductPage() {
 
   const buildLinkClass = ({ isActive }) => {
     return clsx(s.link, isActive && s.active);
+  };
+
+  const handleClickAddCart = () => {
+    dispatch(addToCartRequest({ id: produstId, quantity: quantityOfProduct }));
+    dispatch(requestAllsOder());
   };
 
   return (
@@ -79,7 +88,11 @@ export default function ProductPage() {
                       </button>
                     </li>
                     <li>
-                      <button className={s.buttonAdd} type="button">
+                      <button
+                        className={s.buttonAdd}
+                        type="button"
+                        onClick={handleClickAddCart}
+                      >
                         Add to cart
                       </button>
                     </li>
