@@ -1,3 +1,12 @@
+.titleCart {
+  padding-left: 20px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.14;
+  color: #1d1e21;
+}
+
 .containerList {
   display: flex;
   flex-direction: column;
@@ -23,6 +32,11 @@
 }
 
 @media screen and (min-width: 1440px) {
+  .titleCart {
+    padding-left: 0px;
+    margin-top: 60px;
+  }
+
   .containerList {
     padding-top: 60px;
     width: 460px;

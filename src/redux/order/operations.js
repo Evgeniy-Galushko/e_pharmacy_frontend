@@ -45,6 +45,25 @@ export const addToCartRequest = createAsyncThunk(
       );
       console.log(data.data.data);
       // clearAuthHeader();
+      return data.data.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const orderRequest = createAsyncThunk(
+  "user/order",
+  async (order, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const token = state.user.token;
+      if (token) {
+        setAuthHeader(token);
+      }
+      const data = await axios.post(`/api/cart/checkout`, order);
+      console.log(data.data.data);
+      // clearAuthHeader();
       // return data.data.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

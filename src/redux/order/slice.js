@@ -6,7 +6,7 @@ const orderSlise = createSlice({
   initialState: {
     basket: [],
     updateBasket: {},
-    order: {},
+    order: null,
     isLoading: false,
     error: null,
   },

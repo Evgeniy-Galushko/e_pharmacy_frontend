@@ -5,21 +5,29 @@ export default function ShoppingList({ basket }) {
   if (!basket) return;
 
   return (
-    <ul className={s.containerList}>
-      {basket.map(({ _id, photo, name, price, suppliers, stock, quantity }) => {
-        return (
-          <li key={_id} className={s.oneCard}>
-            <OrderItem
-              photo={photo}
-              name={name}
-              price={price}
-              suppliers={suppliers}
-              stock={stock}
-              quantity={quantity}
-            />
-          </li>
-        );
-      })}
-    </ul>
+    <>
+      {basket.length === 0 ? (
+        <h3 className={s.titleCart}>You have no items in your cart!</h3>
+      ) : (
+        <ul className={s.containerList}>
+          {basket.map(
+            ({ _id, photo, name, price, suppliers, stock, quantity }) => {
+              return (
+                <li key={_id} className={s.oneCard}>
+                  <OrderItem
+                    photo={photo}
+                    name={name}
+                    price={price}
+                    suppliers={suppliers}
+                    stock={stock}
+                    quantity={quantity}
+                  />
+                </li>
+              );
+            }
+          )}
+        </ul>
+      )}
+    </>
   );
 }

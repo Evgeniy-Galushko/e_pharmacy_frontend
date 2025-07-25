@@ -10,8 +10,6 @@ export default function CartPage() {
   const dispatch = useDispatch();
   const basket = useSelector(selectBasket);
 
-  console.log(basket);
-
   useEffect(() => {
     dispatch(requestAllsOder());
   }, [dispatch]);
@@ -25,7 +23,7 @@ export default function CartPage() {
       <h2 className={s.titleCart}>Cart</h2>
       <ul className={s.boxCart}>
         <li>
-          <OrderForm orderAmount={orderAmount} />
+          <OrderForm orderAmount={orderAmount} basket={basket} />
         </li>
         <li>
           <ShoppingList basket={basket} />

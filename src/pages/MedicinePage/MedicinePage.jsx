@@ -10,6 +10,8 @@ import { useEffect, useState } from "react";
 import { requestForMedicines } from "../../redux/product/operations.js";
 import Pagination from "../../components/Pagination/Pagination.jsx";
 import { PaginationButton } from "../../utils/pagination_button.js";
+import toast, { Toaster } from "react-hot-toast";
+import { selectOrder } from "../../redux/order/selectors.js";
 
 export default function MedicinePage() {
   const [toPage, setToPage] = useState(1);
@@ -17,6 +19,7 @@ export default function MedicinePage() {
   const [category, setCategory] = useState("");
   const isLoading = useSelector(selectIsLoading);
   const product = useSelector(selectProducts);
+  const order = useSelector(selectOrder);
   const dispatch = useDispatch();
   const page = PaginationButton(product.totalPages);
   const perPage = 12;
@@ -32,8 +35,19 @@ export default function MedicinePage() {
       })
     );
   }, [dispatch, toPage, search, category]);
+
+  if (order) {
+    toast.success("Changes added");
+  }
   return (
     <section className={s.medicinesSection}>
+      <Toaster
+        toastOptions={{
+          className: "",
+          duration: 4000,
+          style: {},
+        }}
+      />
       <h1 className={s.titleMedicine}>Medicine </h1>
       <SearchMedicines setSearh={setSearh} setCategory={setCategory} />
       <MedicinesList product={product.data} isLoading={isLoading} />

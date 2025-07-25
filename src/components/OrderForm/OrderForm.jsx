@@ -3,7 +3,7 @@ import s from "./OrderForm.module.css";
 import * as Yup from "yup";
 import { useId } from "react";
 
-export default function OrderForm({ orderAmount }) {
+export default function OrderForm({ orderAmount, basket }) {
   const nameId = useId();
   const emailId = useId();
   const phoneId = useId();
@@ -41,7 +41,12 @@ export default function OrderForm({ orderAmount }) {
 
   const handleSubmit = (values, actions) => {
     console.log();
-    console.log({ ...values, order_date: new Date().toString().slice(4, 15) });
+    console.log({
+      ...values,
+      order_date: new Date().toString().slice(4, 15),
+      products: basket,
+      price: orderAmount.toFixed(2),
+    });
   };
 
   return (
