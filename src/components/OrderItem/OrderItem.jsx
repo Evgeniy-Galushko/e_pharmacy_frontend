@@ -3,12 +3,14 @@ import sprite from "../../img/icon-sprite.svg";
 import s from "./OrderItem.module.css";
 
 export default function OrderItem({
+  id,
   photo,
   name,
   price,
   suppliers,
   stock,
   quantity,
+  setDeleteProductId,
 }) {
   const [quantityOfProduct, setQuantityOfProduct] = useState(quantity);
 
@@ -18,6 +20,10 @@ export default function OrderItem({
 
   const handleMinusProduct = () => {
     setQuantityOfProduct(quantityOfProduct - 1);
+  };
+
+  const handleDeleteProduct = (_id) => {
+    setDeleteProductId(_id);
   };
   return (
     <>
@@ -54,7 +60,13 @@ export default function OrderItem({
               </svg>
             </button>
           </div>
-          <button type="button" className={s.removeButton}>
+          <button
+            type="button"
+            className={s.removeButton}
+            onClick={() => {
+              handleDeleteProduct(id);
+            }}
+          >
             Remove
           </button>
         </li>

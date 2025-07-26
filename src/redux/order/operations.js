@@ -43,7 +43,7 @@ export const addToCartRequest = createAsyncThunk(
       const data = await axios.put(
         `/api/cart/update?id=${id}&quantity=${quantity}`
       );
-      console.log(data.data.data);
+      // console.log(data.data.data);
       // clearAuthHeader();
       return data.data.data;
     } catch (error) {
@@ -64,7 +64,26 @@ export const orderRequest = createAsyncThunk(
       const data = await axios.post(`/api/cart/checkout`, order);
       console.log(data.data.data);
       // clearAuthHeader();
-      // return data.data.data;
+      return data.data.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteProductRequest = createAsyncThunk(
+  "user/deleteProduct",
+  async (id, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const token = state.user.token;
+      if (token) {
+        setAuthHeader(token);
+      }
+      const data = await axios.delete(`/api/cart/remove/${id}`);
+      console.log(data.status);
+      // clearAuthHeader();
+      return data.status;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
