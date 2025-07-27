@@ -2,7 +2,11 @@ import MedicinesItem from "../MedicinesItem/MedicinesItem.jsx";
 import s from "./MedicinesList.module.css";
 import { RingLoader } from "react-spinners";
 
-export default function MedicinesList({ product, isLoading }) {
+export default function MedicinesList({
+  product,
+  isLoading,
+  handleOpenModalLogin,
+}) {
   if (!product) return;
 
   return (
@@ -23,6 +27,7 @@ export default function MedicinesList({ product, isLoading }) {
                     price={price}
                     stock={stock}
                     suppliers={suppliers}
+                    handleOpenModalLogin={handleOpenModalLogin}
                   />
                 </li>
               );

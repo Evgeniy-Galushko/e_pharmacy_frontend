@@ -1,13 +1,24 @@
 import { NavLink } from "react-router-dom";
 import s from "./MedicinesItem.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addToCartRequest,
   requestAllsOder,
 } from "../../redux/order/operations.js";
+import { selectToken } from "../../redux/user/selectors.js";
 
-export default function MedicinesItem({ id, name, photo, price, suppliers }) {
+export default function MedicinesItem({
+  id,
+  name,
+  photo,
+  price,
+  suppliers,
+  handleOpenModalLogin,
+}) {
   const dispatch = useDispatch();
+  const token = useSelector(selectToken);
+
+  // console.log(token);
 
   const handleClickAddCart = (_id) => {
     dispatch(addToCartRequest({ id: _id, quantity: 1 }));
@@ -32,9 +43,13 @@ export default function MedicinesItem({ id, name, photo, price, suppliers }) {
             <button
               className={s.button}
               type="button"
-              onClick={() => {
-                handleClickAddCart(id);
-              }}
+              onClick={
+                token
+                  ? () => {
+                      handleClickAddCart(id);
+                    }
+                  : handleOpenModalLogin
+              }
             >
               Add to cart
             </button>

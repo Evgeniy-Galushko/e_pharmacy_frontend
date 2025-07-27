@@ -81,7 +81,7 @@ export const deleteProductRequest = createAsyncThunk(
         setAuthHeader(token);
       }
       const data = await axios.delete(`/api/cart/remove/${id}`);
-      console.log(data.status);
+      // console.log(data.status);
       // clearAuthHeader();
       return data.status;
     } catch (error) {

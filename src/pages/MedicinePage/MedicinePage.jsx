@@ -12,10 +12,12 @@ import Pagination from "../../components/Pagination/Pagination.jsx";
 import { PaginationButton } from "../../utils/pagination_button.js";
 import toast, { Toaster } from "react-hot-toast";
 import { selectOrder } from "../../redux/order/selectors.js";
+import ModalLogin from "../../components/ModalLogin/ModalLogin.jsx";
 
 export default function MedicinePage() {
   const [toPage, setToPage] = useState(1);
   const [search, setSearh] = useState("");
+  const [isOpenModaLogin, setIsOpenModaLogin] = useState(false);
   const [category, setCategory] = useState("");
   const isLoading = useSelector(selectIsLoading);
   const product = useSelector(selectProducts);
@@ -23,7 +25,7 @@ export default function MedicinePage() {
   const dispatch = useDispatch();
   const page = PaginationButton(product.totalPages);
   const perPage = 12;
-  // console.log(toPage, search, category);
+  // console.log(order);
 
   useEffect(() => {
     dispatch(
@@ -36,11 +38,22 @@ export default function MedicinePage() {
     );
   }, [dispatch, toPage, search, category]);
 
-  if (order) {
-    toast.success("Changes added");
-  }
+  // if (order) {
+  //   toast.success("Changes added");
+  // }
+
+  const handleCloseModalLogin = () => {
+    console.log(close);
+    setIsOpenModaLogin(false);
+  };
+
+  const handleOpenModalLogin = () => {
+    setIsOpenModaLogin(true);
+  };
+
   return (
     <section className={s.medicinesSection}>
+      <ModalLogin isOpen={isOpenModaLogin} onClose={handleCloseModalLogin} />
       <Toaster
         toastOptions={{
           className: "",
@@ -50,7 +63,11 @@ export default function MedicinePage() {
       />
       <h1 className={s.titleMedicine}>Medicine </h1>
       <SearchMedicines setSearh={setSearh} setCategory={setCategory} />
-      <MedicinesList product={product.data} isLoading={isLoading} />
+      <MedicinesList
+        product={product.data}
+        isLoading={isLoading}
+        handleOpenModalLogin={handleOpenModalLogin}
+      />
       {product.totalPages > 1 && (
         <Pagination
           numberOfPages={page}

@@ -2,8 +2,11 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import s from "./OrderForm.module.css";
 import * as Yup from "yup";
 import { useId } from "react";
+import { useDispatch } from "react-redux";
+import { orderRequest } from "../../redux/order/operations.js";
 
-export default function OrderForm({ orderAmount, basket, setOrder }) {
+export default function OrderForm({ orderAmount, basket }) {
+  const dispatch = useDispatch();
   const nameId = useId();
   const emailId = useId();
   const phoneId = useId();
@@ -46,13 +49,14 @@ export default function OrderForm({ orderAmount, basket, setOrder }) {
     //   products: basket,
     //   price: orderAmount.toFixed(2),
     // });
-
-    setOrder({
-      ...values,
-      order_date: new Date().toString().slice(4, 15),
-      products: basket,
-      price: orderAmount.toFixed(2),
-    });
+    dispatch(
+      orderRequest({
+        ...values,
+        order_date: new Date().toString().slice(4, 15),
+        products: basket,
+        price: orderAmount.toFixed(2),
+      })
+    );
 
     actions.resetForm();
   };
