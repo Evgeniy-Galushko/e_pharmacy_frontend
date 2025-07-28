@@ -1,12 +1,15 @@
+import { useSelector } from "react-redux";
 import MedicinesItem from "../MedicinesItem/MedicinesItem.jsx";
 import s from "./MedicinesList.module.css";
 import { RingLoader } from "react-spinners";
+import { selectIsLoading } from "../../redux/product/selectors.js";
 
 export default function MedicinesList({
   product,
-  isLoading,
+  // isLoading,
   handleOpenModalLogin,
 }) {
+  const isLoading = useSelector(selectIsLoading);
   if (!product) return;
 
   return (

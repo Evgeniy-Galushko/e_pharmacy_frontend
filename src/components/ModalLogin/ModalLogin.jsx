@@ -4,10 +4,19 @@ import sprite from "../../img/icon-sprite.svg";
 import * as Yup from "yup";
 import { useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginRequest } from "../../redux/user/operations.js";
 
-export default function ModalLogin({ isOpen, onClose }) {
+export default function ModalLogin({
+  isOpen,
+  onClose,
+  handleOpenModalRegister,
+}) {
   const [showPassword, setShowPassword] = useState(false);
+  const navigation = useNavigate();
+  const dispatch = useDispatch();
+
   const customStyles = {
     overlay: {
       backgroundColor: "rgba(25, 26, 21, 0.3)",
@@ -15,7 +24,7 @@ export default function ModalLogin({ isOpen, onClose }) {
     content: {
       border: "none",
       overflow: "auto",
-      padding: "40px",
+      padding: "0px",
       borderRadius: "30px",
       top: "50%",
       left: "50%",
@@ -42,8 +51,11 @@ export default function ModalLogin({ isOpen, onClose }) {
   });
 
   const handleSubmit = (values, actions) => {
-    // setUserData(values);
-    // console.log(values);
+    dispatch(loginRequest(values));
+
+    navigation("/cart");
+
+    onClose();
 
     actions.resetForm();
   };
@@ -56,6 +68,11 @@ export default function ModalLogin({ isOpen, onClose }) {
     setShowPassword(false);
   };
 
+  const handleOpenRegiste = () => {
+    onClose();
+    handleOpenModalRegister();
+  };
+
   return (
     <Modal
       isOpen={isOpen}
@@ -63,7 +80,7 @@ export default function ModalLogin({ isOpen, onClose }) {
       style={customStyles}
       ariaHideApp={false}
     >
-      <button type="button" onClick={onClose}>
+      <button type="button" onClick={onClose} className={s.buttonClose}>
         <svg width={20} height={20}>
           <use href={`${sprite}#icon-x-black`} />
         </svg>
@@ -75,6 +92,12 @@ export default function ModalLogin({ isOpen, onClose }) {
         validationSchema={validationSchema}
       >
         <Form className={s.form}>
+          <div>
+            <h2 className={s.titleModal}>Log in to your account</h2>
+            <p className={s.paragraphForm}>
+              Please login to your account before continuing.
+            </p>
+          </div>
           <div className={s.boxInput}>
             <Field
               name="email"
@@ -128,7 +151,11 @@ export default function ModalLogin({ isOpen, onClose }) {
             <button className={s.buttonSubmit} type="submit">
               Log in
             </button>
-            <button type="button" className={s.paragraph}>
+            <button
+              type="button"
+              className={s.buttonLink}
+              onClick={handleOpenRegiste}
+            >
               Don't have an account?
             </button>
           </div>

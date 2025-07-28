@@ -13,11 +13,13 @@ import { PaginationButton } from "../../utils/pagination_button.js";
 import toast, { Toaster } from "react-hot-toast";
 import { selectOrder } from "../../redux/order/selectors.js";
 import ModalLogin from "../../components/ModalLogin/ModalLogin.jsx";
+import ModalRegister from "../../components/ModalRegister/ModalRegister.jsx";
 
 export default function MedicinePage() {
   const [toPage, setToPage] = useState(1);
   const [search, setSearh] = useState("");
   const [isOpenModaLogin, setIsOpenModaLogin] = useState(false);
+  const [isOpenModaRegister, setIsOpenModaRegister] = useState(false);
   const [category, setCategory] = useState("");
   const isLoading = useSelector(selectIsLoading);
   const product = useSelector(selectProducts);
@@ -43,7 +45,6 @@ export default function MedicinePage() {
   // }
 
   const handleCloseModalLogin = () => {
-    console.log(close);
     setIsOpenModaLogin(false);
   };
 
@@ -51,9 +52,26 @@ export default function MedicinePage() {
     setIsOpenModaLogin(true);
   };
 
+  const handleOpenModalRegister = () => {
+    setIsOpenModaRegister(true);
+  };
+
+  const handleCloseModalRegister = () => {
+    setIsOpenModaRegister(false);
+  };
+
   return (
     <section className={s.medicinesSection}>
-      <ModalLogin isOpen={isOpenModaLogin} onClose={handleCloseModalLogin} />
+      <ModalLogin
+        isOpen={isOpenModaLogin}
+        onClose={handleCloseModalLogin}
+        handleOpenModalRegister={handleOpenModalRegister}
+      />
+      <ModalRegister
+        isOpen={isOpenModaRegister}
+        onClose={handleCloseModalRegister}
+        handleOpenModalLogin={handleOpenModalLogin}
+      />
       <Toaster
         toastOptions={{
           className: "",
@@ -65,7 +83,6 @@ export default function MedicinePage() {
       <SearchMedicines setSearh={setSearh} setCategory={setCategory} />
       <MedicinesList
         product={product.data}
-        isLoading={isLoading}
         handleOpenModalLogin={handleOpenModalLogin}
       />
       {product.totalPages > 1 && (

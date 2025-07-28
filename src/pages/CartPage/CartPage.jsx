@@ -4,7 +4,6 @@ import s from "./CartPage.module.css";
 import { useEffect, useState } from "react";
 import {
   deleteProductRequest,
-  orderRequest,
   requestAllsOder,
 } from "../../redux/order/operations.js";
 import {
@@ -24,14 +23,17 @@ export default function CartPage() {
   const placedOrder = useSelector(selectPlacedOrder);
 
   // console.log(placedOrder);
+  useEffect(() => {
+    if (deleteProduct === 204) {
+      toast.success("Product removed");
+    }
+  }, [deleteProduct]);
 
-  if (deleteProduct === 204) {
-    toast.success("Product removed");
-  }
-
-  if (placedOrder) {
-    toast.success("Order placed");
-  }
+  useEffect(() => {
+    if (placedOrder) {
+      toast.success("Order placed");
+    }
+  }, [placedOrder]);
 
   useEffect(() => {
     dispatch(deleteProductRequest(deleteProductId));

@@ -1,0 +1,179 @@
+.buttonClose {
+  position: absolute;
+  left: 300px;
+  top: 20px;
+  border: none;
+  background-color: inherit;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 280px;
+  padding: 40px 32px;
+  gap: 10px;
+}
+
+.titleModal {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.14;
+  text-align: center;
+  color: #1d1e21;
+}
+
+.paragraphForm {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  text-align: center;
+  color: #6a6a6f;
+
+  margin: 14px 0px;
+}
+
+.input {
+  box-sizing: border-box;
+  border: 1px solid rgba(29, 30, 33, 0.1);
+  border-radius: 60px;
+  width: 280px;
+  height: 44px;
+  background-color: #fff;
+  padding: 13px 18px;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1d1e21;
+
+  &::placeholder {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    color: rgba(29, 30, 33, 0.4);
+  }
+}
+
+.boxInput {
+  position: relative;
+}
+
+.errorMessage {
+  position: absolute;
+  top: 43px;
+  left: 10px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.5;
+  color: red;
+}
+
+.buttonShowPassword {
+  position: absolute;
+  top: 14px;
+  left: 245px;
+  padding: 0;
+  width: 20px;
+  height: 16px;
+  background-color: inherit;
+  border: none;
+}
+
+.boxButton {
+  margin-top: 10px;
+}
+
+.buttonSubmit {
+  box-sizing: border-box;
+  border: none;
+  border-radius: 60px;
+  padding: 13px 114px;
+  width: 280px;
+  height: 44px;
+  background-color: #59b17a;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  color: #fff;
+
+  &:hover {
+    background-color: #3f945f;
+  }
+}
+
+.buttonLogin {
+  background-color: inherit;
+  border: none;
+  display: block;
+  margin: 0 auto;
+
+  margin-top: 14px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(29, 30, 33, 0.4);
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .buttonClose {
+    left: 419px;
+    top: 20px;
+  }
+
+  .form {
+    /* margin-top: 54px; */
+    gap: 14px;
+    padding: 50px 70px;
+    width: 323px;
+  }
+
+  .paragraphForm {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .input {
+    width: 323px;
+  }
+
+  .buttonShowPassword {
+    left: 285px;
+  }
+
+  .boxButton {
+    /* margin-top: 48px; */
+  }
+
+  .buttonSubmit {
+    padding: 13px 135px;
+    width: 323px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .form {
+    /* margin-top: 114px; */
+  }
+
+  /* .input {
+    width: 262px;
+  } */
+
+  /* .buttonShowPassword {
+    left: 225px;
+  } */
+
+  .boxButton {
+    /* margin-top: 62px; */
+  }
+}

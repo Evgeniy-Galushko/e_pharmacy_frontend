@@ -1,0 +1,102 @@
+.notFoundPage {
+  box-sizing: border-box;
+  max-width: 375px;
+  /* padding: 40px 20px 80px 20px; */
+  margin: 0 auto;
+  background-color: inherit;
+
+  background-image: url(../../../public/pills_1x_mob.png);
+  background-repeat: no-repeat;
+  background-size: 312px 312px;
+  background-position: center center;
+  padding: 191px 20px 337px 20px;
+}
+
+@media screen and (min-resolution: 192dpi) {
+  .notFoundPage {
+    background-image: url(../../../public/pills_2x_mob.png);
+  }
+}
+
+.paragraph {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 4px 85px 0 rgba(29, 30, 33, 0.3);
+  text-align: center;
+}
+
+.boxLink {
+  position: absolute;
+}
+
+.linkHome {
+  position: relative;
+  top: 78px;
+  left: 150px;
+
+  display: block;
+  box-sizing: border-box;
+  border-radius: 30px;
+  padding: 12px 30px;
+  width: 150px;
+  height: 40px;
+  background-color: #59b17a;
+
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  color: #fff;
+
+  &:hover {
+    color: #fff;
+    background-color: #3f945f;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .notFoundPage {
+    max-width: 768px;
+    background-image: url(../../../public/pills_1x_tab_PC.png);
+    background-size: 704px 508px;
+    padding: 298px 32px 414px 32px;
+  }
+
+  @media screen and (min-resolution: 192dpi) {
+    .notFoundPage {
+      background-image: url(../../../public/pills_2x_tab_PC.png);
+    }
+  }
+
+  .paragraph {
+    font-size: 50px;
+    line-height: 1;
+  }
+
+  .linkHome {
+    position: relative;
+    top: 70px;
+    left: 350px;
+    width: 178px;
+    height: 48px;
+
+    font-size: 18px;
+    line-height: 1.29;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .paragraph {
+    font-size: 60px;
+    line-height: 1;
+  }
+
+  .linkHome {
+    top: 60px;
+    left: 350px;
+  }
+}
