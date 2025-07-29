@@ -10,19 +10,26 @@ import {
   addToCartRequest,
   requestAllsOder,
 } from "../../redux/order/operations.js";
+import { selectRrorProduct } from "../../redux/order/selectors.js";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function ProductPage() {
   const [quantityOfProduct, setQuantityOfProduct] = useState(1);
   const { produstId } = useParams();
   const dispatch = useDispatch();
   const product = useSelector(selectOneMedicine);
+  const error = useSelector(selectRrorProduct);
 
   // console.log(product);
   const { _id, photo, name, price, suppliers, stock } = product;
 
   useEffect(() => {
     dispatch(requestById(produstId));
-  }, [dispatch]);
+
+    if (error) {
+      toast.error("The product has already been added");
+    }
+  }, [dispatch, produstId, error]);
 
   const handlePlusProduct = () => {
     setQuantityOfProduct(quantityOfProduct + 1);
@@ -43,6 +50,13 @@ export default function ProductPage() {
 
   return (
     <section className={s.sectionProduct}>
+      <Toaster
+        toastOptions={{
+          className: "",
+          duration: 3000,
+          style: {},
+        }}
+      />
       <ul className={s.productBox}>
         <li>
           <ul className={s.boxProd}>

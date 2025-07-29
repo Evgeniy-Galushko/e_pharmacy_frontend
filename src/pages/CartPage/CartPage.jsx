@@ -23,22 +23,31 @@ export default function CartPage() {
   const placedOrder = useSelector(selectPlacedOrder);
 
   // console.log(placedOrder);
-  useEffect(() => {
-    if (deleteProduct === 204) {
-      toast.success("Product removed");
-    }
-  }, [deleteProduct]);
+  // useEffect(() => {
+  //   if (deleteProduct === 204) {
+  //     toast.success("Product removed");
+  //   }
+  // }, [deleteProduct]);
 
-  useEffect(() => {
-    if (placedOrder) {
-      toast.success("Order placed");
-    }
-  }, [placedOrder]);
+  // useEffect(() => {
+  //   if (placedOrder) {
+  //     toast.success("Order placed");
+  //   }
+  // }, [placedOrder]);
+
+  // console.log(placedOrder);
 
   useEffect(() => {
     dispatch(deleteProductRequest(deleteProductId));
     dispatch(requestAllsOder());
-  }, [dispatch, deleteProductId]);
+
+    if (deleteProduct === 204) {
+      toast.success("Product removed");
+    }
+    if (placedOrder) {
+      toast.success("Order placed");
+    }
+  }, [dispatch, deleteProductId, placedOrder, deleteProduct]);
 
   const orderAmount = basket.reduce((total, basket) => {
     return total + basket.quantity * basket.price;

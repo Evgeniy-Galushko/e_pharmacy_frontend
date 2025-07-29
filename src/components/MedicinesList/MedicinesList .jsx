@@ -11,13 +11,15 @@ export default function MedicinesList({
 }) {
   const isLoading = useSelector(selectIsLoading);
   if (!product) return;
-
+  // console.log(product.length);
   return (
     <>
       {isLoading ? (
         <RingLoader color="#59b17a" className={s.spinners} size={50} />
+      ) : product.length === 0 ? (
+        <h2 className={s.nothingFound}>Nothing was found for your request</h2>
       ) : (
-        <ul className={s.istOfMedicines}>
+        <ul ul className={s.istOfMedicines}>
           {product.map(
             ({ category, name, photo, price, stock, suppliers, _id }) => {
               return (

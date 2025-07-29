@@ -5,6 +5,17 @@
   gap: 25px;
 }
 
+.nothingFound {
+  /* display: block; */
+  padding: 40px 0;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.14;
+  color: #1d1e21;
+  text-align: center;
+}
+
 .oneCardMedicines {
   width: 335px;
   height: 443px;
@@ -23,6 +34,12 @@
     gap: 13px;
     row-gap: 32px;
     justify-content: center;
+  }
+
+  .nothingFound {
+    /* display: block; */
+    padding: 60px 0;
+    font-size: 26px;
   }
 
   .oneCardMedicines {

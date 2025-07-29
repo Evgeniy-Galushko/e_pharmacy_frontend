@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo.jsx";
 import s from "./Footer.module.css";
 import sprite from "../../img/icon-sprite.svg";
@@ -8,7 +8,9 @@ export default function Footer() {
     <div className={s.footer}>
       <ul className={s.boxLogoNav}>
         <li>
-          <Logo footer={false} />
+          <Link to="/home">
+            <Logo footer={false} />
+          </Link>
           <p className={s.paragraph}>
             Get the medicine to help you feel better, get back to your active
             life, and enjoy every moment.

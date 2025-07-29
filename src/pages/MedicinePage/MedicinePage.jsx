@@ -11,7 +11,7 @@ import { requestForMedicines } from "../../redux/product/operations.js";
 import Pagination from "../../components/Pagination/Pagination.jsx";
 import { PaginationButton } from "../../utils/pagination_button.js";
 import toast, { Toaster } from "react-hot-toast";
-import { selectOrder } from "../../redux/order/selectors.js";
+import { selectOrder, selectRrorProduct } from "../../redux/order/selectors.js";
 import ModalLogin from "../../components/ModalLogin/ModalLogin.jsx";
 import ModalRegister from "../../components/ModalRegister/ModalRegister.jsx";
 
@@ -26,6 +26,7 @@ export default function MedicinePage() {
   const order = useSelector(selectOrder);
   const dispatch = useDispatch();
   const page = PaginationButton(product.totalPages);
+  const error = useSelector(selectRrorProduct);
   const perPage = 12;
   // console.log(order);
 
@@ -40,9 +41,11 @@ export default function MedicinePage() {
     );
   }, [dispatch, toPage, search, category]);
 
-  // if (order) {
-  //   toast.success("Changes added");
-  // }
+  useEffect(() => {
+    if (error) {
+      toast.error("The product has already been added");
+    }
+  }, [error]);
 
   const handleCloseModalLogin = () => {
     setIsOpenModaLogin(false);
@@ -75,7 +78,7 @@ export default function MedicinePage() {
       <Toaster
         toastOptions={{
           className: "",
-          duration: 4000,
+          duration: 3000,
           style: {},
         }}
       />

@@ -39,8 +39,7 @@ export default function Logo({ footer }) {
         </li>
       )}
       <li>
-        <NavLink
-          to="/home"
+        <p
           className={
             footer
               ? clsx(s.title, location.pathname !== "/home" && s.titleWhite)
@@ -48,7 +47,7 @@ export default function Logo({ footer }) {
           }
         >
           E-Pharmacy
-        </NavLink>
+        </p>
       </li>
     </ul>
   );

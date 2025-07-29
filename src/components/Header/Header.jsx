@@ -1,6 +1,6 @@
 import s from "./Header.module.css";
 import Logo from "../Logo/Logo.jsx";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import NavigationLinks from "../NavigationLinks/NavigationLinks.jsx";
 import AuthenticationLinks from "../AuthenticationLinks/AuthenticationLinks.jsx";
@@ -39,7 +39,9 @@ export default function Header() {
       className={clsx(s.header, location.pathname === "/home" && s.headerGreen)}
     >
       <li>
-        <Logo footer={true} />
+        <Link to="/home">
+          <Logo footer={true} />
+        </Link>
       </li>
       <li className={s.boxButtonMenu}>
         {token && <UserNavMob />}

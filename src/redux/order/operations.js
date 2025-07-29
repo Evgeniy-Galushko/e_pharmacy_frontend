@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 axios.defaults.baseURL = "https://e-pharmacy-backend-34d4.onrender.com";
 
@@ -43,7 +44,10 @@ export const addToCartRequest = createAsyncThunk(
       const data = await axios.put(
         `/api/cart/update?id=${id}&quantity=${quantity}`
       );
-      // console.log(data.data.data);
+      // console.log(data.data.status);
+      if (data.data.status === 200) {
+        toast.success("Product added to cart");
+      }
       // clearAuthHeader();
       return data.data.data;
     } catch (error) {

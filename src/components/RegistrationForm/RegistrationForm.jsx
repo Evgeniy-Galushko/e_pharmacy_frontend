@@ -1,24 +1,15 @@
 import { Field, Formik, Form, ErrorMessage } from "formik";
-import toast from "react-hot-toast";
+
 import * as Yup from "yup";
 import s from "./RegistrationForm.module.css";
 import sprite from "../../img/icon-sprite.svg";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectError } from "../../redux/user/selectors.js";
+// import { useSelector } from "react-redux";
+// import { selectError } from "../../redux/user/selectors.js";
 
 export default function RegistrationForm({ setUserData }) {
   const [showPassword, setShowPassword] = useState(false);
-
-  const error = useSelector(selectError);
-  console.log(error);
-
-  if (error) {
-    if (error.includes("409")) {
-      toast.error("You have already registered!");
-    }
-  }
 
   const initialValues = {
     name: "",

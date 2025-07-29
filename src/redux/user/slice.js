@@ -90,6 +90,13 @@ const userSlise = createSlice({
         state.error = action.payload;
       });
   },
+  reducers: {
+    resetError(state) {
+      state.error = null;
+    },
+  },
 });
+
+export const { resetError } = userSlise.actions;
 
 export default userSlise.reducer;
