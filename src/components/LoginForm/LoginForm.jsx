@@ -25,7 +25,6 @@ export default function LoginForm({ setUserData }) {
 
   const handleSubmit = (values, actions) => {
     setUserData(values);
-    // console.log(values);
 
     actions.resetForm();
   };

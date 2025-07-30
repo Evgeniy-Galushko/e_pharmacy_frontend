@@ -11,7 +11,7 @@ export default function MedicinesList({
 }) {
   const isLoading = useSelector(selectIsLoading);
   if (!product) return;
-  // console.log(product.length);
+
   return (
     <>
       {isLoading ? (

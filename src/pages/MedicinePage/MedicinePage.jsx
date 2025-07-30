@@ -29,7 +29,6 @@ export default function MedicinePage() {
   const page = PaginationButton(product.totalPages);
   const error = useSelector(selectRrorProduct);
   const perPage = 12;
-  // console.log(order);
 
   useEffect(() => {
     dispatch(resetError());

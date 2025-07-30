@@ -13,16 +13,12 @@ export default function LoginPage() {
   const token = useSelector(selectToken);
   const navigation = useNavigate();
 
-  // console.log(userData);
-
   useEffect(() => {
     dispatch(loginRequest(userData));
     if (token) {
       navigation("/cart");
     }
   }, [dispatch, userData, token]);
-
-  // console.log(userData);
 
   return (
     <section className={s.sectionLogin}>

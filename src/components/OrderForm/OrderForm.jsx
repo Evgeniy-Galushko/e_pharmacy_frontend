@@ -43,12 +43,6 @@ export default function OrderForm({ orderAmount, basket }) {
   });
 
   const handleSubmit = (values, actions) => {
-    // console.log({
-    //   ...values,
-    //   order_date: new Date().toString().slice(4, 15),
-    //   products: basket,
-    //   price: orderAmount.toFixed(2),
-    // });
     dispatch(
       orderRequest({
         ...values,

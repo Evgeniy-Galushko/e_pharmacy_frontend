@@ -16,16 +16,10 @@ import toast, { Toaster } from "react-hot-toast";
 
 export default function CartPage() {
   const [deleteProductId, setDeleteProductId] = useState("");
-  // const [newQuantity, setNewQuantity] = useState({});
-  // console.log(newQuantity);
-
-  // const [order, setOrder] = useState({});
   const dispatch = useDispatch();
   const basket = useSelector(selectBasket);
   const deleteProduct = useSelector(selecDdeleteProduct);
   const placedOrder = useSelector(selectPlacedOrder);
-
-  // console.log(placedOrder);
 
   useEffect(() => {
     dispatch(deleteProductRequest(deleteProductId));

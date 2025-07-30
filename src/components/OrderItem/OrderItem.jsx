@@ -17,8 +17,6 @@ export default function OrderItem({
   const [quantityOfProduct, setQuantityOfProduct] = useState(quantity);
   const dispatch = useDispatch();
 
-  // console.log(quantityOfProduct);
-
   const handlePlusProduct = (_id) => {
     setQuantityOfProduct(quantityOfProduct + 1);
     dispatch(updateOrderQuantity({ _id, quantity: quantityOfProduct + 1 }));

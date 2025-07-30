@@ -27,7 +27,6 @@ export default function ProductPage() {
   const error = useSelector(selectRrorProduct);
   const token = useSelector(selectToken);
 
-  // console.log(product);
   const { _id, photo, name, price, suppliers, stock } = product;
 
   useEffect(() => {

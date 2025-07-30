@@ -18,8 +18,6 @@ export default function MedicinesItem({
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
 
-  // console.log(error);
-
   const handleClickAddCart = (_id) => {
     dispatch(addToCartRequest({ id: _id, quantity: 1 }));
     dispatch(requestAllsOder());

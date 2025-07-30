@@ -35,8 +35,8 @@ function App() {
   return (
     <Suspense fallback={"Loader"}>
       <Routes>
-        <Route path="/home" element={<SharedLayout />}>
-          <Route index element={<HomePage />} />
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<Navigate to="/home" replace />} />
           <Route path="home" element={<HomePage />} />
           <Route path="register" element={<RegisterPage />} />
           <Route path="login" element={<LoginPage />} />

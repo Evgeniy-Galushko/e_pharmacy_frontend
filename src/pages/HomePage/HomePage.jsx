@@ -23,8 +23,6 @@ export default function HomePage() {
   const reviews = useSelector(selectReviews);
   const isloading = useSelector(selectIsLoading);
 
-  // console.log(reviews);
-
   useEffect(() => {
     dispatch(currentNearestStore());
     dispatch(currentReviews());

@@ -11,11 +11,10 @@ export default function MedicineStorePage() {
   const stores = useSelector(selectStores);
   const isloading = useSelector(selectIsLoading);
 
-  // console.log(stores);
-
   useEffect(() => {
     dispatch(currentStores());
   }, [dispatch]);
+
   return (
     <section className={s.medicineStorePage}>
       <h1 className={s.titleStore}>Medicine store</h1>

@@ -17,8 +17,6 @@ export default function RegisterPage() {
   const navigation = useNavigate();
   const error = useSelector(selectError);
 
-  console.log(error);
-
   useEffect(() => {
     dispatch(registrationRequest(userData));
     if (token) {
@@ -32,8 +30,6 @@ export default function RegisterPage() {
       }
     }
   }, [dispatch, userData, token]);
-
-  // console.log(userData);
 
   return (
     <section className={s.sectionRegister}>
