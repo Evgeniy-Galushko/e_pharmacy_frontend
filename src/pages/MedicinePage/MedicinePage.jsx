@@ -14,6 +14,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { selectOrder, selectRrorProduct } from "../../redux/order/selectors.js";
 import ModalLogin from "../../components/ModalLogin/ModalLogin.jsx";
 import ModalRegister from "../../components/ModalRegister/ModalRegister.jsx";
+import { resetError } from "../../redux/order/slice.js";
 
 export default function MedicinePage() {
   const [toPage, setToPage] = useState(1);
@@ -31,6 +32,7 @@ export default function MedicinePage() {
   // console.log(order);
 
   useEffect(() => {
+    dispatch(resetError());
     dispatch(
       requestForMedicines({
         perPage: perPage,
@@ -44,6 +46,7 @@ export default function MedicinePage() {
   useEffect(() => {
     if (error) {
       toast.error("The product has already been added");
+      dispatch(resetError());
     }
   }, [error]);
 

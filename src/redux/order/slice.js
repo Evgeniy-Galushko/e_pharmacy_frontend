@@ -69,6 +69,27 @@ const orderSlise = createSlice({
         state.error = action.payload;
       });
   },
+  reducers: {
+    resetError(state) {
+      state.error = null;
+    },
+    updateOrderQuantity(state, action) {
+      const { _id, quantity } = action.payload;
+
+      const foundObject = state.basket.filter((basket) => basket._id === _id);
+      console.log(foundObject);
+      const remainingObjects = state.basket.filter(
+        (basket) => basket._id !== _id
+      );
+      const newObjekt = [{ ...foundObject[0], quantity: quantity }];
+
+      const newArray = [...remainingObjects, newObjekt[0]];
+      // console.log(newArray);
+      state.basket = newArray;
+    },
+  },
 });
+
+export const { resetError, updateOrderQuantity } = orderSlise.actions;
 
 export default orderSlise.reducer;

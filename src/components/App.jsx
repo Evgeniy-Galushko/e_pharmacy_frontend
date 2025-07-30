@@ -35,7 +35,7 @@ function App() {
   return (
     <Suspense fallback={"Loader"}>
       <Routes>
-        <Route path="/" element={<SharedLayout />}>
+        <Route path="/home" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
           <Route path="home" element={<HomePage />} />
           <Route path="register" element={<RegisterPage />} />

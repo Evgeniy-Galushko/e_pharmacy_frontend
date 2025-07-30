@@ -16,24 +16,14 @@ import toast, { Toaster } from "react-hot-toast";
 
 export default function CartPage() {
   const [deleteProductId, setDeleteProductId] = useState("");
+  // const [newQuantity, setNewQuantity] = useState({});
+  // console.log(newQuantity);
+
   // const [order, setOrder] = useState({});
   const dispatch = useDispatch();
   const basket = useSelector(selectBasket);
   const deleteProduct = useSelector(selecDdeleteProduct);
   const placedOrder = useSelector(selectPlacedOrder);
-
-  // console.log(placedOrder);
-  // useEffect(() => {
-  //   if (deleteProduct === 204) {
-  //     toast.success("Product removed");
-  //   }
-  // }, [deleteProduct]);
-
-  // useEffect(() => {
-  //   if (placedOrder) {
-  //     toast.success("Order placed");
-  //   }
-  // }, [placedOrder]);
 
   // console.log(placedOrder);
 
@@ -69,6 +59,7 @@ export default function CartPage() {
         </li>
         <li>
           <ShoppingList
+            // setNewQuantity={setNewQuantity}
             setDeleteProductId={setDeleteProductId}
             basket={basket}
           />

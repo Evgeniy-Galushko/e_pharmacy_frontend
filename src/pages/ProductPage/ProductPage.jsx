@@ -12,22 +12,31 @@ import {
 } from "../../redux/order/operations.js";
 import { selectRrorProduct } from "../../redux/order/selectors.js";
 import toast, { Toaster } from "react-hot-toast";
+import ModalLogin from "../../components/ModalLogin/ModalLogin.jsx";
+import ModalRegister from "../../components/ModalRegister/ModalRegister.jsx";
+import { selectToken } from "../../redux/user/selectors.js";
+import { resetError } from "../../redux/order/slice.js";
 
 export default function ProductPage() {
   const [quantityOfProduct, setQuantityOfProduct] = useState(1);
+  const [isOpenModaLogin, setIsOpenModaLogin] = useState(false);
+  const [isOpenModaRegister, setIsOpenModaRegister] = useState(false);
   const { produstId } = useParams();
   const dispatch = useDispatch();
   const product = useSelector(selectOneMedicine);
   const error = useSelector(selectRrorProduct);
+  const token = useSelector(selectToken);
 
   // console.log(product);
   const { _id, photo, name, price, suppliers, stock } = product;
 
   useEffect(() => {
+    dispatch(resetError());
     dispatch(requestById(produstId));
 
     if (error) {
       toast.error("The product has already been added");
+      dispatch(resetError());
     }
   }, [dispatch, produstId, error]);
 
@@ -48,8 +57,34 @@ export default function ProductPage() {
     dispatch(requestAllsOder());
   };
 
+  const handleCloseModalLogin = () => {
+    setIsOpenModaLogin(false);
+  };
+
+  const handleOpenModalLogin = () => {
+    setIsOpenModaLogin(true);
+  };
+
+  const handleOpenModalRegister = () => {
+    setIsOpenModaRegister(true);
+  };
+
+  const handleCloseModalRegister = () => {
+    setIsOpenModaRegister(false);
+  };
+
   return (
     <section className={s.sectionProduct}>
+      <ModalLogin
+        isOpen={isOpenModaLogin}
+        onClose={handleCloseModalLogin}
+        handleOpenModalRegister={handleOpenModalRegister}
+      />
+      <ModalRegister
+        isOpen={isOpenModaRegister}
+        onClose={handleCloseModalRegister}
+        handleOpenModalLogin={handleOpenModalLogin}
+      />
       <Toaster
         toastOptions={{
           className: "",
@@ -105,7 +140,9 @@ export default function ProductPage() {
                       <button
                         className={s.buttonAdd}
                         type="button"
-                        onClick={handleClickAddCart}
+                        onClick={
+                          token ? handleClickAddCart : handleOpenModalLogin
+                        }
                       >
                         Add to cart
                       </button>

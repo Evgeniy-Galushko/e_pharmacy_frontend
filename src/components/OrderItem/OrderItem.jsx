@@ -1,6 +1,8 @@
 import { useState } from "react";
 import sprite from "../../img/icon-sprite.svg";
 import s from "./OrderItem.module.css";
+import { useDispatch } from "react-redux";
+import { updateOrderQuantity } from "../../redux/order/slice.js";
 
 export default function OrderItem({
   id,
@@ -13,13 +15,18 @@ export default function OrderItem({
   setDeleteProductId,
 }) {
   const [quantityOfProduct, setQuantityOfProduct] = useState(quantity);
+  const dispatch = useDispatch();
 
-  const handlePlusProduct = () => {
+  // console.log(quantityOfProduct);
+
+  const handlePlusProduct = (_id) => {
     setQuantityOfProduct(quantityOfProduct + 1);
+    dispatch(updateOrderQuantity({ _id, quantity: quantityOfProduct + 1 }));
   };
 
-  const handleMinusProduct = () => {
+  const handleMinusProduct = (_id) => {
     setQuantityOfProduct(quantityOfProduct - 1);
+    dispatch(updateOrderQuantity({ _id, quantity: quantityOfProduct - 1 }));
   };
 
   const handleDeleteProduct = (_id) => {
@@ -41,7 +48,9 @@ export default function OrderItem({
             <button
               className={s.buttonPlus}
               type="button"
-              onClick={handlePlusProduct}
+              onClick={() => {
+                handlePlusProduct(id);
+              }}
               disabled={quantityOfProduct >= stock && true}
             >
               <svg width={20} height={20}>
@@ -52,7 +61,9 @@ export default function OrderItem({
             <button
               className={s.buttonMinus}
               type="button"
-              onClick={handleMinusProduct}
+              onClick={() => {
+                handleMinusProduct(id);
+              }}
               disabled={quantityOfProduct <= 1 && true}
             >
               <svg width={20} height={20}>

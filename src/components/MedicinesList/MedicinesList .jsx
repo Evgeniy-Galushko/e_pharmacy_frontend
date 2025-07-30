@@ -19,7 +19,7 @@ export default function MedicinesList({
       ) : product.length === 0 ? (
         <h2 className={s.nothingFound}>Nothing was found for your request</h2>
       ) : (
-        <ul ul className={s.istOfMedicines}>
+        <ul className={s.istOfMedicines}>
           {product.map(
             ({ category, name, photo, price, stock, suppliers, _id }) => {
               return (
