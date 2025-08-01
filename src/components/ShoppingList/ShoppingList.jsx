@@ -1,7 +1,7 @@
 import s from "./ShoppingList.module.css";
 import OrderItem from "../OrderItem/OrderItem.jsx";
 
-export default function ShoppingList({ basket, setDeleteProductId }) {
+export default function ShoppingList({ basket }) {
   if (!basket) return;
 
   return (
@@ -22,7 +22,6 @@ export default function ShoppingList({ basket, setDeleteProductId }) {
                     stock={stock}
                     quantity={quantity}
                     id={_id}
-                    setDeleteProductId={setDeleteProductId}
                   />
                 </li>
               );

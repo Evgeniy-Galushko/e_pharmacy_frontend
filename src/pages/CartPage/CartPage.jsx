@@ -2,10 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import OrderForm from "../../components/OrderForm/OrderForm.jsx";
 import s from "./CartPage.module.css";
 import { useEffect, useState } from "react";
-import {
-  deleteProductRequest,
-  requestAllsOder,
-} from "../../redux/order/operations.js";
+import { requestAllsOder } from "../../redux/order/operations.js";
 import {
   selecDdeleteProduct,
   selectBasket,
@@ -21,10 +18,9 @@ export default function CartPage() {
   const deleteProduct = useSelector(selecDdeleteProduct);
   const placedOrder = useSelector(selectPlacedOrder);
 
-  console.log(basket);
+  // console.log(basket);
 
   useEffect(() => {
-    dispatch(deleteProductRequest(deleteProductId));
     dispatch(requestAllsOder());
 
     if (deleteProduct === 204) {

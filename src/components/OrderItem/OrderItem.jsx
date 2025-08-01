@@ -3,6 +3,7 @@ import sprite from "../../img/icon-sprite.svg";
 import s from "./OrderItem.module.css";
 import { useDispatch } from "react-redux";
 import { updateOrderQuantity } from "../../redux/order/slice.js";
+import { deleteProductRequest } from "../../redux/order/operations.js";
 
 export default function OrderItem({
   id,
@@ -12,7 +13,6 @@ export default function OrderItem({
   suppliers,
   stock,
   quantity,
-  setDeleteProductId,
 }) {
   const [quantityOfProduct, setQuantityOfProduct] = useState(quantity);
   const dispatch = useDispatch();
@@ -27,8 +27,9 @@ export default function OrderItem({
     dispatch(updateOrderQuantity({ _id, quantity: quantityOfProduct - 1 }));
   };
 
-  const handleDeleteProduct = (_id) => {
-    setDeleteProductId(_id);
+  const handleDeleteProduct = (idProduct) => {
+    // setDeleteProductId(idProduct);
+    dispatch(deleteProductRequest(idProduct));
   };
   return (
     <>
