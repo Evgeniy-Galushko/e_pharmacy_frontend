@@ -34,7 +34,9 @@ export default function ProductPage() {
     dispatch(requestById(produstId));
 
     if (error) {
-      toast.error("The product has already been added");
+      toast.error(
+        "The quantity of ordered goods exceeds the quantity in stock!"
+      );
       dispatch(resetError());
     }
   }, [dispatch, produstId, error]);
@@ -87,7 +89,7 @@ export default function ProductPage() {
       <Toaster
         toastOptions={{
           className: "",
-          duration: 3000,
+          duration: 4000,
           style: {},
         }}
       />

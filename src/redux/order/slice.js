@@ -75,17 +75,12 @@ const orderSlise = createSlice({
     },
     updateOrderQuantity(state, action) {
       const { _id, quantity } = action.payload;
-
-      const foundObject = state.basket.filter((basket) => basket._id === _id);
-      console.log(foundObject);
-      const remainingObjects = state.basket.filter(
-        (basket) => basket._id !== _id
-      );
-      const newObjekt = [{ ...foundObject[0], quantity: quantity }];
-
-      const newArray = [...remainingObjects, newObjekt[0]];
-      // console.log(newArray);
-      state.basket = newArray;
+      state.basket = state.basket.map((item) => {
+        if (item._id === _id) {
+          return { ...item, quantity: quantity };
+        }
+        return item;
+      });
     },
   },
 });

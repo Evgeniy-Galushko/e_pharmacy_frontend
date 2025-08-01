@@ -2,16 +2,13 @@ import { useDispatch, useSelector } from "react-redux";
 import MedicinesList from "../../components/MedicinesList/MedicinesList .jsx";
 import SearchMedicines from "../../components/SearchMedicines/SearchMedicines.jsx";
 import s from "./MedicinePage.module.css";
-import {
-  selectIsLoading,
-  selectProducts,
-} from "../../redux/product/selectors.js";
+import { selectProducts } from "../../redux/product/selectors.js";
 import { useEffect, useState } from "react";
 import { requestForMedicines } from "../../redux/product/operations.js";
 import Pagination from "../../components/Pagination/Pagination.jsx";
 import { PaginationButton } from "../../utils/pagination_button.js";
 import toast, { Toaster } from "react-hot-toast";
-import { selectOrder, selectRrorProduct } from "../../redux/order/selectors.js";
+import { selectRrorProduct } from "../../redux/order/selectors.js";
 import ModalLogin from "../../components/ModalLogin/ModalLogin.jsx";
 import ModalRegister from "../../components/ModalRegister/ModalRegister.jsx";
 import { resetError } from "../../redux/order/slice.js";
@@ -22,13 +19,15 @@ export default function MedicinePage() {
   const [isOpenModaLogin, setIsOpenModaLogin] = useState(false);
   const [isOpenModaRegister, setIsOpenModaRegister] = useState(false);
   const [category, setCategory] = useState("");
-  const isLoading = useSelector(selectIsLoading);
+  // const isLoading = useSelector(selectIsLoading);
   const product = useSelector(selectProducts);
-  const order = useSelector(selectOrder);
+  // const order = useSelector(selectOrder);
   const dispatch = useDispatch();
   const page = PaginationButton(product.totalPages);
   const error = useSelector(selectRrorProduct);
   const perPage = 12;
+
+  // console.log(product.data);
 
   useEffect(() => {
     dispatch(resetError());
@@ -44,7 +43,9 @@ export default function MedicinePage() {
 
   useEffect(() => {
     if (error) {
-      toast.error("The product has already been added");
+      toast.error(
+        "The quantity of ordered goods exceeds the quantity in stock!"
+      );
       dispatch(resetError());
     }
   }, [error]);

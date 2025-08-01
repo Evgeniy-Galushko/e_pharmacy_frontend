@@ -10,7 +10,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 280px;
+  box-sizing: border-box;
+  width: 343px;
   padding: 40px 32px;
   gap: 10px;
 }
@@ -134,7 +135,7 @@
     /* margin-top: 54px; */
     gap: 14px;
     padding: 50px 70px;
-    width: 323px;
+    width: 463px;
   }
 
   .paragraphForm {

@@ -20,7 +20,6 @@ export default function UserNav() {
   };
 
   if (!user) return;
-  // console.log(!user);
 
   return (
     <ul className={s.boxUserNav}>

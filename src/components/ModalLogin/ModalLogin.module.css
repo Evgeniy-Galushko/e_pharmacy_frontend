@@ -7,10 +7,11 @@
 }
 
 .form {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 280px;
+  width: 343px;
   padding: 40px 32px;
 }
 
@@ -132,7 +133,7 @@
   .form {
     gap: 14px;
     padding: 50px 70px;
-    width: 323px;
+    width: 463px;
   }
 
   .paragraphForm {

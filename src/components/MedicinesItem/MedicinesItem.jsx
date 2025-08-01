@@ -18,9 +18,13 @@ export default function MedicinesItem({
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
 
-  const handleClickAddCart = (_id) => {
-    dispatch(addToCartRequest({ id: _id, quantity: 1 }));
-    dispatch(requestAllsOder());
+  const handleClickAddCart = async (_id) => {
+    try {
+      await dispatch(addToCartRequest({ id: _id, quantity: 1 }));
+      dispatch(requestAllsOder());
+    } catch (err) {
+      console.log(`Error adding to cart: ${err}`);
+    }
   };
 
   return (

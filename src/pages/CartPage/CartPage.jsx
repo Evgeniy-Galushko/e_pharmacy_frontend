@@ -21,6 +21,8 @@ export default function CartPage() {
   const deleteProduct = useSelector(selecDdeleteProduct);
   const placedOrder = useSelector(selectPlacedOrder);
 
+  console.log(basket);
+
   useEffect(() => {
     dispatch(deleteProductRequest(deleteProductId));
     dispatch(requestAllsOder());
