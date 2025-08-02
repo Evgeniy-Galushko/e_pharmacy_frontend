@@ -16,6 +16,7 @@ const orderSlise = createSlice({
     placedOrder: null,
     isLoading: false,
     error: null,
+    errorBasket: null,
   },
   extraReducers: (builder) => {
     builder
@@ -36,12 +37,12 @@ const orderSlise = createSlice({
       })
       .addCase(addToCartRequest.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.error = null;
+        state.errorBasket = null;
         state.order = action.payload;
       })
       .addCase(addToCartRequest.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload;
+        state.errorBasket = action.payload;
       })
       .addCase(orderRequest.pending, (state) => {
         state.isLoading = false;
@@ -71,7 +72,7 @@ const orderSlise = createSlice({
   },
   reducers: {
     resetError(state) {
-      state.error = null;
+      state.errorBasket = null;
     },
     updateOrderQuantity(state, action) {
       const { _id, quantity } = action.payload;
@@ -82,9 +83,13 @@ const orderSlise = createSlice({
         return item;
       });
     },
+    clearDeleteProduct(state) {
+      state.deleteProduct = null;
+    },
   },
 });
 
-export const { resetError, updateOrderQuantity } = orderSlise.actions;
+export const { resetError, updateOrderQuantity, clearDeleteProduct } =
+  orderSlise.actions;
 
 export default orderSlise.reducer;

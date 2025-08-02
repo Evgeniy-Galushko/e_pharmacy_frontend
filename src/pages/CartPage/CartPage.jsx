@@ -10,6 +10,7 @@ import {
 } from "../../redux/order/selectors.js";
 import ShoppingList from "../../components/ShoppingList/ShoppingList.jsx";
 import toast, { Toaster } from "react-hot-toast";
+import { clearDeleteProduct } from "../../redux/order/slice.js";
 
 export default function CartPage() {
   const [deleteProductId, setDeleteProductId] = useState("");
@@ -18,13 +19,12 @@ export default function CartPage() {
   const deleteProduct = useSelector(selecDdeleteProduct);
   const placedOrder = useSelector(selectPlacedOrder);
 
-  // console.log(basket);
-
   useEffect(() => {
     dispatch(requestAllsOder());
 
     if (deleteProduct === 204) {
       toast.success("Product removed");
+      dispatch(clearDeleteProduct());
     }
     if (placedOrder) {
       toast.success("Order placed");

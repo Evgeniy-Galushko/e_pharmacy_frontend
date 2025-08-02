@@ -6,4 +6,6 @@ export const selecDdeleteProduct = (state) => state.order.deleteProduct;
 
 export const selectPlacedOrder = (state) => state.order.placedOrder;
 
-export const selectRrorProduct = (state) => state.order.error;
+export const selectErrorProduct = (state) => state.order.error;
+
+export const selectErrorBasket = (state) => state.order.errorBasket;

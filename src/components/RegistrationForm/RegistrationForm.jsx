@@ -5,11 +5,14 @@ import s from "./RegistrationForm.module.css";
 import sprite from "../../img/icon-sprite.svg";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { registrationRequest } from "../../redux/user/operations.js";
 // import { useSelector } from "react-redux";
 // import { selectError } from "../../redux/user/selectors.js";
 
-export default function RegistrationForm({ setUserData }) {
+export default function RegistrationForm() {
   const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
 
   const initialValues = {
     name: "",
@@ -37,7 +40,8 @@ export default function RegistrationForm({ setUserData }) {
   });
 
   const handleSubmit = (values, actions) => {
-    setUserData(values);
+    // setUserData(values);
+    dispatch(registrationRequest(values));
 
     actions.resetForm();
   };

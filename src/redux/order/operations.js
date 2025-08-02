@@ -38,6 +38,7 @@ export const addToCartRequest = createAsyncThunk(
     try {
       const state = thunkAPI.getState();
       const token = state.user.token;
+      console.log(token);
       if (token) {
         setAuthHeader(token);
       }

@@ -4,9 +4,12 @@ import s from "./LoginForm.module.css";
 import sprite from "../../img/icon-sprite.svg";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginRequest } from "../../redux/user/operations.js";
 
-export default function LoginForm({ setUserData }) {
+export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
 
   const initialValues = {
     email: "",
@@ -24,7 +27,8 @@ export default function LoginForm({ setUserData }) {
   });
 
   const handleSubmit = (values, actions) => {
-    setUserData(values);
+    // setUserData(values);
+    dispatch(loginRequest(values));
 
     actions.resetForm();
   };

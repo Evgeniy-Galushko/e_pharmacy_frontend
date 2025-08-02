@@ -10,7 +10,7 @@ import {
   addToCartRequest,
   requestAllsOder,
 } from "../../redux/order/operations.js";
-import { selectRrorProduct } from "../../redux/order/selectors.js";
+import { selectErrorBasket } from "../../redux/order/selectors.js";
 import toast, { Toaster } from "react-hot-toast";
 import ModalLogin from "../../components/ModalLogin/ModalLogin.jsx";
 import ModalRegister from "../../components/ModalRegister/ModalRegister.jsx";
@@ -24,7 +24,7 @@ export default function ProductPage() {
   const { produstId } = useParams();
   const dispatch = useDispatch();
   const product = useSelector(selectOneMedicine);
-  const error = useSelector(selectRrorProduct);
+  const errorBasket = useSelector(selectErrorBasket);
   const token = useSelector(selectToken);
 
   const { _id, photo, name, price, suppliers, stock } = product;
@@ -33,13 +33,15 @@ export default function ProductPage() {
     dispatch(resetError());
     dispatch(requestById(produstId));
 
-    if (error) {
-      toast.error(
-        "The quantity of ordered goods exceeds the quantity in stock!"
-      );
-      dispatch(resetError());
+    if (errorBasket) {
+      if (errorBasket.includes(404)) {
+        toast.error(
+          "The quantity of ordered goods exceeds the quantity in stock!"
+        );
+        dispatch(resetError());
+      }
     }
-  }, [dispatch, produstId, error]);
+  }, [dispatch, produstId, errorBasket]);
 
   const handlePlusProduct = () => {
     setQuantityOfProduct(quantityOfProduct + 1);

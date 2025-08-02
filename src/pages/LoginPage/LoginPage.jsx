@@ -1,24 +1,23 @@
 import s from "./LoginPage.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Title from "../../components/Title/Title.jsx";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginForm from "../../components/LoginForm/LoginForm.jsx";
-import { loginRequest } from "../../redux/user/operations.js";
 import { selectToken } from "../../redux/user/selectors.js";
 
 export default function LoginPage() {
-  const [userData, setUserData] = useState({});
-  const dispatch = useDispatch();
+  // const [userData, setUserData] = useState({});
+  // const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const navigation = useNavigate();
 
   useEffect(() => {
-    dispatch(loginRequest(userData));
+    // dispatch(loginRequest(userData));
     if (token) {
       navigation("/cart");
     }
-  }, [dispatch, userData, token]);
+  }, [token]);
 
   return (
     <section className={s.sectionLogin}>
@@ -27,7 +26,7 @@ export default function LoginPage() {
           <Title />
         </li>
         <li>
-          <LoginForm setUserData={setUserData} />
+          <LoginForm />
         </li>
       </ul>
     </section>

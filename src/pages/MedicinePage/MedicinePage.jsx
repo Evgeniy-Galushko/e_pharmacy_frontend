@@ -8,7 +8,7 @@ import { requestForMedicines } from "../../redux/product/operations.js";
 import Pagination from "../../components/Pagination/Pagination.jsx";
 import { PaginationButton } from "../../utils/pagination_button.js";
 import toast, { Toaster } from "react-hot-toast";
-import { selectRrorProduct } from "../../redux/order/selectors.js";
+import { selectErrorBasket } from "../../redux/order/selectors.js";
 import ModalLogin from "../../components/ModalLogin/ModalLogin.jsx";
 import ModalRegister from "../../components/ModalRegister/ModalRegister.jsx";
 import { resetError } from "../../redux/order/slice.js";
@@ -24,7 +24,7 @@ export default function MedicinePage() {
   // const order = useSelector(selectOrder);
   const dispatch = useDispatch();
   const page = PaginationButton(product.totalPages);
-  const error = useSelector(selectRrorProduct);
+  const errorBasket = useSelector(selectErrorBasket);
   const perPage = 12;
 
   // console.log(product.data);
@@ -40,15 +40,18 @@ export default function MedicinePage() {
       })
     );
   }, [dispatch, toPage, search, category]);
+  // console.log(errorBasket);
 
   useEffect(() => {
-    if (error) {
-      toast.error(
-        "The quantity of ordered goods exceeds the quantity in stock!"
-      );
-      dispatch(resetError());
+    if (errorBasket) {
+      if (errorBasket.includes(404)) {
+        toast.error(
+          "The quantity of ordered goods exceeds the quantity in stock!"
+        );
+        // dispatch(resetError());
+      }
     }
-  }, [error]);
+  }, [errorBasket]);
 
   const handleCloseModalLogin = () => {
     setIsOpenModaLogin(false);
