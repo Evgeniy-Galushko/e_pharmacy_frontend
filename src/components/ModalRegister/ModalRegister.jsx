@@ -137,6 +137,7 @@ export default function ModalRegister({
               placeholder="Email address"
               required
               className={s.input}
+              autoComplete="username"
             />
             <ErrorMessage
               className={s.errorMessage}
@@ -151,6 +152,7 @@ export default function ModalRegister({
               placeholder="Phone number"
               required
               className={s.input}
+              autoComplete="tel"
             />
             <ErrorMessage
               className={s.errorMessage}
@@ -165,6 +167,7 @@ export default function ModalRegister({
               placeholder="Password"
               required
               className={s.input}
+              autoComplete="new-password"
             />
             {showPassword ? (
               <button

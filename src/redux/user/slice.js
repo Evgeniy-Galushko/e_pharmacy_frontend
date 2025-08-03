@@ -94,9 +94,12 @@ const userSlise = createSlice({
     resetError(state) {
       state.error = null;
     },
+    resetToken(state) {
+      state.token = null;
+    },
   },
 });
 
-export const { resetError } = userSlise.actions;
+export const { resetError, resetToken } = userSlise.actions;
 
 export default userSlise.reducer;

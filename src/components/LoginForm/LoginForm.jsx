@@ -55,6 +55,7 @@ export default function LoginForm() {
             placeholder="Email address"
             required
             className={s.input}
+            autoComplete="username"
           />
           <ErrorMessage
             className={s.errorMessage}
@@ -69,6 +70,7 @@ export default function LoginForm() {
             placeholder="Password"
             required
             className={s.input}
+            autoComplete="current-password"
           />
           {showPassword ? (
             <button

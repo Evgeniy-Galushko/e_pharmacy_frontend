@@ -82,6 +82,7 @@ export default function RegistrationForm() {
             placeholder="Email address"
             required
             className={s.input}
+            autoComplete="username"
           />
           <ErrorMessage
             className={s.errorMessage}
@@ -96,6 +97,7 @@ export default function RegistrationForm() {
             placeholder="Phone number"
             required
             className={s.input}
+            autoComplete="tel"
           />
           <ErrorMessage
             className={s.errorMessage}
@@ -110,6 +112,7 @@ export default function RegistrationForm() {
             placeholder="Password"
             required
             className={s.input}
+            autoComplete="new-password"
           />
           {showPassword ? (
             <button

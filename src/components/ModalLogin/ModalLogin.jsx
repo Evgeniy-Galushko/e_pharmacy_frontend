@@ -105,6 +105,7 @@ export default function ModalLogin({
               placeholder="Email address"
               required
               className={s.input}
+              autoComplete="username"
             />
             <ErrorMessage
               className={s.errorMessage}
@@ -119,6 +120,7 @@ export default function ModalLogin({
               placeholder="Password"
               required
               className={s.input}
+              autoComplete="current-password"
             />
             {showPassword ? (
               <button
